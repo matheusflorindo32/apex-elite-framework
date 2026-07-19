@@ -1,0 +1,20 @@
+{
+  "status": "aprovado",
+  "checks": {
+    "required_files": 18,
+    "skills": 11,
+    "skill_interfaces": 11,
+    "project_types": 6,
+    "json_schemas": 1,
+    "examples": 5,
+    "internal_links": 8
+  },
+  "summary": {
+    "crítico": 0,
+    "alto": 0,
+    "médio": 0,
+    "baixo": 0,
+    "informativo": 0
+  },
+  "issues": []
+}

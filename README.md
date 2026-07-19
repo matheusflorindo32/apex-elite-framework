@@ -1,51 +1,69 @@
 # Apex Elite Framework
 
-Framework modular para planejar, executar, revisar e auditar projetos complexos com uma equipe sênior escolhida automaticamente conforme o contexto.
+Framework local, modular e sem dependência de API para planejar, revisar e auditar projetos complexos com Skills especializadas e critérios verificáveis.
 
-## Objetivo
+## O que está pronto
 
-Evitar prompts repetitivos do tipo “use os melhores especialistas do mundo” e substituir isso por um processo verificável:
+- catálogo validável com 11 Skills e aliases como `@Commander`, `@EPO` e `@QA`;
+- seleção determinística de equipe para catálogo, ciência, software, pesquisa e automação;
+- CLI `aef` para listar Skills, gerar briefs, planos, checklists e auditorias;
+- controle de iteração com orçamento e condição de parada;
+- auditoria em Markdown e JSON;
+- cinco exemplos completos, templates, checklists e documentação;
+- testes automatizados e GitHub Actions;
+- licença Apache-2.0.
 
-1. compreender o projeto;
-2. classificar o tipo de trabalho;
-3. selecionar somente especialistas necessários;
-4. criar plano e critérios de aprovação;
-5. executar;
-6. realizar revisão cruzada;
-7. rodar controle de qualidade;
-8. entregar com relatório de riscos, pendências e evidências.
+## Instalação local
 
-## Componentes principais
+Requer Python 3.11+ e [`uv`](https://docs.astral.sh/uv/).
 
-- `@Commander`: coordena projetos longos, prioridades e estado geral.
-- `@EPO`: orquestra cada tarefa ou entrega.
-- Skills especializadas: ciência, editorial, software, pesquisa, marketing, design, negócios, automação e QA.
-- Templates: catálogo, artigo, software, livro e projeto geral.
-- Workflows: fluxos reutilizáveis.
-- Checklists: critérios mínimos de qualidade.
-- Schemas: contratos estruturados para planejamento e saída.
+```bash
+uv sync --dev
+uv run aef validate
+uv run pytest
+```
+
+Nenhuma chave de API é necessária. O AEF grava arquivos somente quando `--output` é informado.
 
 ## Uso rápido
 
-No Codex, abra este repositório e use:
+```bash
+uv run aef skills list
+uv run aef brief new --type catalog --output brief.md
+uv run aef plan --type catalog --request "Criar catálogo comercial" --output plan.md
+uv run aef checklist --type catalog
+uv run aef audit --format json --output audit.json
+```
 
-> Leia `AGENTS.md` e `docs/CODEX_MASTER_PROMPT.md`. Depois implemente o framework integralmente, valide os arquivos e execute os testes documentais.
+Tipos disponíveis: `general`, `catalog`, `scientific`, `software`, `research` e `automation`. Sem `--type`, o comando `plan` pode classificar o pedido por palavras-chave e usa `general` quando não há sinal suficiente.
 
-Para uma tarefa específica:
+Em conversas, os aliases documentais continuam simples:
 
-> Use `@EPO`. Analise o projeto, selecione a equipe sênior adequada, produza um plano, execute, revise e entregue com auditoria final.
+```text
+@EPO Analise esta entrega, selecione a equipe necessária e aplique QA.
+@Commander Coordene este projeto, registre decisões e acione o @EPO por entrega.
+```
 
-## Princípios
+Em ambientes com Skills nativas do Codex, use `$elite-project-orchestrator` ou `$commander`.
 
-- Não inventar evidências.
-- Não listar especialistas só para parecer sofisticado.
-- Não ocultar limitações, incertezas ou pendências.
-- Não considerar a primeira versão como definitiva.
-- Não usar “padrão internacional” como frase vazia: transformar qualidade em critérios verificáveis.
-- Não alterar fatos técnicos, nomes de produtos, marcas, cores institucionais ou dados fornecidos sem autorização.
+## Arquitetura
 
-## Estado
+- `src/aef/`: CLI, catálogo, planejamento, loop e validação;
+- `config/`: aliases, tipos de projeto, equipes e critérios;
+- `skills/`: instruções modulares com metadados nativos;
+- `templates/`, `checklists/` e `workflows/`: recursos reutilizáveis;
+- `schemas/`: contratos de saída;
+- `tests/`: testes unitários, estruturais e de CLI;
+- `docs/`: arquitetura, uso, criação de Skills e modelo de qualidade.
 
-Versão inicial: `v1.0.0-draft`.
+Leia [Arquitetura](docs/ARCHITECTURE.md), [Uso](docs/USAGE.md), [Criação de Skills](docs/CREATING_SKILLS.md), [Modelo de qualidade](docs/QUALITY_MODEL.md) e [Versionamento](docs/VERSIONING.md).
 
-O Codex deverá concluir a implementação, testes, documentação, automações locais e exemplos.
+## Garantias e limites
+
+O CLI prepara e valida planos; ele não executa ações externas nem substitui julgamento profissional. Seleção por palavras-chave é deliberadamente simples, transparente e local. Projetos de alto risco exigem revisão humana e ferramentas específicas do domínio.
+
+## Licença
+
+Apache License 2.0. Consulte [LICENSE](LICENSE).
+
+Falhas de segurança devem seguir [SECURITY.md](SECURITY.md), sem exposição pública prematura.

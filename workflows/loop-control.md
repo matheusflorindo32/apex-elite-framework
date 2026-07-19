@@ -14,6 +14,8 @@ O loop termina quando:
 - a melhoria estimada do próximo ciclo é marginal;
 - o limite de ciclos foi atingido.
 
+Interromper com status incompleto quando duas iterações consecutivas não produzirem progresso mensurável. Nunca converter esse estado em aprovação.
+
 ## Limites padrão
 
 - planejamento: até 2 ciclos;
@@ -24,3 +26,5 @@ O loop termina quando:
 ## Regra
 
 Nunca repetir uma rodada sem listar exatamente o que mudou e qual erro foi corrigido.
+
+Registrar em cada ciclo: critérios ainda abertos, achados críticos/altos, pontuação ou evidência de progresso, decisão e responsável pela próxima ação.
