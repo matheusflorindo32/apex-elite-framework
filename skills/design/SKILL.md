@@ -1,7 +1,6 @@
 ---
 name: design
-alias: "@Design"
-version: 1.0.0
+description: Conduzir direção de arte, identidade visual, fotografia, ilustração, 3D, composição e qualidade de exportação. Usar em catálogos, marcas, interfaces, apresentações e peças visuais que precisem de fidelidade, acessibilidade e consistência.
 ---
 
 # Design

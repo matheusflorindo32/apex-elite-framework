@@ -1,7 +1,6 @@
 ---
 name: software
-alias: "@Software"
-version: 1.0.0
+description: Planejar, implementar e revisar software quanto a arquitetura, segurança, dados, testes, desempenho, acessibilidade, observabilidade e operação. Usar em aplicações, APIs, CLIs, bancos de dados, infraestrutura e integrações.
 ---
 
 # Software

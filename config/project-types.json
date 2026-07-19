@@ -1,0 +1,85 @@
+{
+  "project_types": {
+    "general": {
+      "keywords": [],
+      "template": "templates/project-brief.md",
+      "checklists": ["checklists/final-qa.md"],
+      "phases": ["Intake e classificação", "Planejamento", "Execução incremental", "Revisão cruzada", "QA e auditoria", "Entrega"],
+      "risks": ["Escopo incompleto", "Evidência insuficiente", "Critérios de aceite ambíguos"],
+      "acceptance_criteria": ["Requisitos rastreados", "Artefatos utilizáveis", "Validações registradas", "Riscos e limitações declarados"],
+      "roles": [
+        {"role": "Orquestrador de entrega", "skill": "elite-project-orchestrator", "reason": "Transformar o pedido em execução verificável.", "responsibility": "Classificar, planejar e coordenar a entrega.", "approval_criterion": "Plano cobre requisitos, riscos e validação."},
+        {"role": "Revisor independente", "skill": "quality-assurance", "reason": "Evitar autoaprovação e omissões.", "responsibility": "Revisar requisitos, consistência e evidências.", "approval_criterion": "Nenhum achado crítico ou alto permanece aberto."}
+      ]
+    },
+    "catalog": {
+      "keywords": ["catálogo", "catalogo", "produto", "inDesign", "editorial", "impressão", "pdf"],
+      "template": "templates/catalogo-premium.md",
+      "checklists": ["checklists/catalog-qa.md", "checklists/final-qa.md"],
+      "phases": ["Inventário e hierarquia comercial", "Direção visual e grid", "Produção de páginas", "Pré-impressão e versão digital", "Revisão cruzada", "QA final"],
+      "risks": ["Especificações inventadas ou desatualizadas", "Imagens insuficientes para impressão", "Divergência entre PDF digital e impresso", "Promessas comerciais não comprovadas"],
+      "acceptance_criteria": ["Ordem comercial aprovada", "Todos os produtos e kits rastreados", "Imagens sem distorção e com resolução adequada", "Links, contatos e QR Codes testados", "PDF digital e arquivo de impressão validados"],
+      "roles": [
+        {"role": "Diretor editorial", "skill": "editorial", "reason": "Garantir arquitetura, grid e paginação consistentes.", "responsibility": "Definir hierarquia, sumário, tipografia e produção gráfica.", "approval_criterion": "Nenhum corte, sobreposição ou inconsistência de paginação."},
+        {"role": "Diretor de arte", "skill": "design", "reason": "Preservar marca e elevar a qualidade visual.", "responsibility": "Definir fotografia, composição, cor e consistência visual.", "approval_criterion": "Imagens fiéis, proporções corretas, contraste e exportação aprovados."},
+        {"role": "Estrategista comercial", "skill": "marketing", "reason": "Alinhar narrativa e CTA à jornada de compra.", "responsibility": "Revisar ordem, copy e conversão sem exageros.", "approval_criterion": "Mensagem clara, CTA acionável e nenhuma promessa sem prova."},
+        {"role": "QA editorial independente", "skill": "quality-assurance", "reason": "Detectar falhas antes da publicação.", "responsibility": "Validar nomes, especificações, links, QR Codes, cortes e acessibilidade.", "approval_criterion": "Nenhum achado crítico ou alto permanece aberto."}
+      ]
+    },
+    "scientific": {
+      "keywords": ["artigo", "científico", "cientifico", "estudo", "evidência", "metodologia", "estatística"],
+      "template": "templates/scientific-review.md",
+      "checklists": ["checklists/scientific-qa.md", "checklists/final-qa.md"],
+      "phases": ["Definição da questão", "Busca e rastreabilidade", "Avaliação metodológica", "Síntese", "Revisão de conclusões", "QA editorial"],
+      "risks": ["Causalidade indevida", "Viés de seleção", "Referência que não sustenta a afirmação", "Evidência desatualizada"],
+      "acceptance_criteria": ["Estratégia de busca reproduzível", "Afirmações críticas vinculadas a fontes", "Limitações e nível de confiança explícitos", "Conclusões proporcionais à evidência"],
+      "roles": [
+        {"role": "Metodologista", "skill": "scientific", "reason": "Avaliar validade e risco de viés.", "responsibility": "Revisar desenho, método, estatística e inferências.", "approval_criterion": "Conclusões compatíveis com método e resultados."},
+        {"role": "Pesquisador documental", "skill": "research", "reason": "Garantir rastreabilidade das fontes.", "responsibility": "Definir busca, seleção e síntese de evidências.", "approval_criterion": "Fontes e lacunas documentadas de forma reproduzível."},
+        {"role": "Editor científico", "skill": "editorial", "reason": "Assegurar clareza e normalização.", "responsibility": "Revisar estrutura, linguagem e referências.", "approval_criterion": "Texto coerente, preciso e adequado ao veículo."},
+        {"role": "QA científico", "skill": "quality-assurance", "reason": "Executar revisão adversarial independente.", "responsibility": "Conferir requisitos, contradições e extrapolações.", "approval_criterion": "Nenhum achado crítico ou alto permanece aberto."}
+      ]
+    },
+    "software": {
+      "keywords": ["software", "aplicativo", "api", "frontend", "backend", "banco", "deploy", "código"],
+      "template": "templates/software-project.md",
+      "checklists": ["checklists/software-qa.md", "checklists/final-qa.md"],
+      "phases": ["Descoberta e arquitetura", "Modelo de ameaças", "Implementação incremental", "Testes", "Build e operação", "Auditoria"],
+      "risks": ["Autorização insuficiente", "Exposição de segredos", "Regressões", "Dependências vulneráveis", "Baixa observabilidade"],
+      "acceptance_criteria": ["Requisitos e arquitetura documentados", "Autorização aplicada no backend", "Testes, lint e build aprovados", "Segredos fora do repositório", "Plano de operação e rollback disponível"],
+      "roles": [
+        {"role": "Arquiteto de software", "skill": "software", "reason": "Manter correção, segurança e evolução sustentável.", "responsibility": "Definir arquitetura, implementação e estratégia de testes.", "approval_criterion": "Código funcional, tipado, testado e documentado."},
+        {"role": "Engenheiro de automação", "skill": "automation", "reason": "Garantir execução e CI reproduzíveis.", "responsibility": "Automatizar validação, build e controles de parada.", "approval_criterion": "Pipeline idempotente e falhas observáveis."},
+        {"role": "Revisor de produto", "skill": "business", "reason": "Conectar implementação ao valor e à operação.", "responsibility": "Revisar escopo, métricas, riscos e custo de manutenção.", "approval_criterion": "Entrega resolve o problema sem complexidade injustificada."},
+        {"role": "QA de software", "skill": "quality-assurance", "reason": "Impedir regressões e autoaprovação.", "responsibility": "Revisar segurança, testes, acessibilidade e documentação.", "approval_criterion": "Nenhum achado crítico ou alto permanece aberto."}
+      ]
+    },
+    "research": {
+      "keywords": ["pesquisa", "documental", "fontes", "benchmark", "concorrente", "levantamento"],
+      "template": "templates/research-project.md",
+      "checklists": ["checklists/research-qa.md", "checklists/final-qa.md"],
+      "phases": ["Perguntas e escopo", "Estratégia de busca", "Coleta", "Síntese", "Validação", "Entrega"],
+      "risks": ["Cobertura insuficiente", "Fontes frágeis", "Confusão entre fato e inferência", "Informação temporalmente desatualizada"],
+      "acceptance_criteria": ["Perguntas respondidas", "Fontes rastreáveis", "Fato, inferência e recomendação separados", "Lacunas e confiança declaradas"],
+      "roles": [
+        {"role": "Líder de pesquisa", "skill": "research", "reason": "Criar método de busca e síntese rastreável.", "responsibility": "Definir perguntas, fontes e critérios de inclusão.", "approval_criterion": "Pesquisa reproduzível e lacunas explícitas."},
+        {"role": "Analista de decisão", "skill": "business", "reason": "Traduzir evidência em implicações práticas.", "responsibility": "Avaliar impacto, riscos e recomendações.", "approval_criterion": "Recomendações distinguem evidência de julgamento."},
+        {"role": "QA de evidência", "skill": "quality-assurance", "reason": "Testar cobertura e coerência.", "responsibility": "Conferir fontes, contradições e atualidade.", "approval_criterion": "Nenhum achado crítico ou alto permanece aberto."}
+      ]
+    },
+    "automation": {
+      "keywords": ["automação", "automacao", "workflow", "agente", "integração", "integração", "pipeline"],
+      "template": "templates/automation-project.md",
+      "checklists": ["checklists/automation-qa.md", "checklists/final-qa.md"],
+      "phases": ["Mapeamento do fluxo", "Permissões e ameaças", "Implementação", "Testes de falha", "Observabilidade", "Operação assistida"],
+      "risks": ["Loop infinito", "Duplicação de efeitos", "Ação crítica sem aprovação", "Vazamento de dados", "Falha silenciosa"],
+      "acceptance_criteria": ["Fluxo idempotente", "Privilégio mínimo", "Condição de parada explícita", "Logs sem dados sensíveis", "Rollback e intervenção humana documentados"],
+      "roles": [
+        {"role": "Arquiteto de automação", "skill": "automation", "reason": "Projetar um fluxo seguro e observável.", "responsibility": "Definir estados, idempotência, erros, parada e rollback.", "approval_criterion": "Cenários de sucesso, repetição e falha cobertos."},
+        {"role": "Engenheiro de integração", "skill": "software", "reason": "Implementar contratos e segurança corretamente.", "responsibility": "Criar integrações, validação e testes.", "approval_criterion": "Entradas validadas, segredos protegidos e erros tratados."},
+        {"role": "QA de automação", "skill": "quality-assurance", "reason": "Simular falhas e efeitos adversos.", "responsibility": "Testar retry, idempotência, permissões e parada.", "approval_criterion": "Nenhum achado crítico ou alto permanece aberto."}
+      ]
+    }
+  }
+}
+

@@ -1,0 +1,16 @@
+{
+  "skills": [
+    {"directory": "commander", "alias": "@Commander", "role": "portfolio_orchestrator"},
+    {"directory": "elite-project-orchestrator", "alias": "@EPO", "role": "task_orchestrator"},
+    {"directory": "scientific", "alias": "@Scientific", "role": "specialist"},
+    {"directory": "editorial", "alias": "@Editorial", "role": "specialist"},
+    {"directory": "software", "alias": "@Software", "role": "specialist"},
+    {"directory": "research", "alias": "@Research", "role": "specialist"},
+    {"directory": "marketing", "alias": "@Marketing", "role": "specialist"},
+    {"directory": "design", "alias": "@Design", "role": "specialist"},
+    {"directory": "business", "alias": "@Business", "role": "specialist"},
+    {"directory": "automation", "alias": "@Automation", "role": "specialist"},
+    {"directory": "quality-assurance", "alias": "@QA", "role": "quality_gate"}
+  ]
+}
+

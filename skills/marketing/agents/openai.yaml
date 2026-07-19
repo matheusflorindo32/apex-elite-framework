@@ -1,0 +1,4 @@
+interface:
+  display_name: "Marketing"
+  short_description: "Cria mensagem comercial clara e responsável"
+  default_prompt: "Use $marketing para revisar o posicionamento, a copy e a jornada de conversão."

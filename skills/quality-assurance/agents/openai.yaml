@@ -1,0 +1,4 @@
+interface:
+  display_name: "Quality Assurance"
+  short_description: "Executa revisão adversarial e gates de qualidade"
+  default_prompt: "Use $quality-assurance para auditar esta entrega e classificar os achados por severidade."

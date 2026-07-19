@@ -1,7 +1,6 @@
 ---
 name: business
-alias: "@Business"
-version: 1.0.0
+description: Avaliar estratégia, proposta de valor, viabilidade, modelo de receita, operação, custos, riscos e métricas. Usar em decisões de produto, negócios, comercialização, escala ou priorização de experimentos.
 ---
 
 # Business

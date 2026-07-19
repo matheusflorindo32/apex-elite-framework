@@ -1,7 +1,6 @@
 ---
 name: research
-alias: "@Research"
-version: 1.0.0
+description: Conduzir pesquisa documental, competitiva, técnica ou acadêmica com busca reproduzível, rastreabilidade, síntese, lacunas e nível de confiança. Usar quando decisões ou entregas dependem de fontes e evidências verificáveis.
 ---
 
 # Research

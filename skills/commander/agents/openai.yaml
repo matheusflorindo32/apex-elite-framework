@@ -1,0 +1,4 @@
+interface:
+  display_name: "Commander"
+  short_description: "Coordena programas e projetos com várias frentes"
+  default_prompt: "Use $commander para coordenar este projeto, registrar decisões, riscos e próximas entregas."

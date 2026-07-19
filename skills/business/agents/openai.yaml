@@ -1,0 +1,4 @@
+interface:
+  display_name: "Business"
+  short_description: "Avalia viabilidade, estratégia, riscos e métricas"
+  default_prompt: "Use $business para avaliar a proposta de valor, a viabilidade, os riscos e as métricas."

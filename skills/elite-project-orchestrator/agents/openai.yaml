@@ -1,0 +1,4 @@
+interface:
+  display_name: "Elite Project Orchestrator"
+  short_description: "Orquestra tarefas complexas do intake ao QA"
+  default_prompt: "Use $elite-project-orchestrator para planejar, executar, revisar e auditar esta tarefa."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Automation"
+  short_description: "Projeta automações seguras e observáveis"
+  default_prompt: "Use $automation para projetar este fluxo com idempotência, observabilidade e condição de parada."

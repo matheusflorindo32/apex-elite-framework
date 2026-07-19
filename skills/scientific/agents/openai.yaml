@@ -1,0 +1,4 @@
+interface:
+  display_name: "Scientific"
+  short_description: "Revisa método, evidência e conclusões científicas"
+  default_prompt: "Use $scientific para avaliar a metodologia, as evidências e as conclusões deste material."

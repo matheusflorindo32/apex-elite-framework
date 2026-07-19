@@ -1,7 +1,6 @@
 ---
 name: marketing
-alias: "@Marketing"
-version: 1.0.0
+description: Criar e revisar posicionamento, proposta de valor, mensagem, copy, jornada e conversão sem promessas não sustentadas. Usar em catálogos comerciais, campanhas, páginas, conteúdo de marca, SEO, growth e vendas.
 ---
 
 # Marketing

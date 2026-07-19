@@ -1,0 +1,4 @@
+interface:
+  display_name: "Software"
+  short_description: "Projeta e revisa software seguro e testável"
+  default_prompt: "Use $software para planejar e implementar esta solução com segurança, testes e documentação."

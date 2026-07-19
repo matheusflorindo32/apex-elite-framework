@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design"
+  short_description: "Conduz direção de arte e qualidade visual"
+  default_prompt: "Use $design para definir a direção visual e revisar a qualidade desta peça."

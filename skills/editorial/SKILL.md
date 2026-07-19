@@ -1,7 +1,6 @@
 ---
 name: editorial
-alias: "@Editorial"
-version: 1.0.0
+description: Estruturar e revisar publicações, catálogos, livros, relatórios e PDFs quanto a arquitetura da informação, hierarquia, tipografia, paginação, legibilidade e produção gráfica. Usar quando o entregável for editorial, impresso, digital ou acessível.
 ---
 
 # Editorial

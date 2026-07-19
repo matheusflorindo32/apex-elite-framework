@@ -1,8 +1,6 @@
 ---
 name: commander
-alias: "@Commander"
-version: 1.0.0
-role: portfolio_orchestrator
+description: Coordenar projetos longos, múltiplas frentes, prioridades, decisões, dependências, riscos e retomadas. Usar quando o trabalho tiver várias entregas ou fases e precisar manter estado global enquanto tarefas específicas são encaminhadas ao Elite Project Orchestrator.
 ---
 
 # Commander

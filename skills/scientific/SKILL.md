@@ -1,7 +1,6 @@
 ---
 name: scientific
-alias: "@Scientific"
-version: 1.0.0
+description: Avaliar metodologia, estatística, evidência, risco de viés, atualidade e adequação de conclusões científicas. Usar em artigos, revisões, protocolos, relatórios técnicos e conteúdo que faça afirmações científicas ou de saúde.
 ---
 
 # Scientific

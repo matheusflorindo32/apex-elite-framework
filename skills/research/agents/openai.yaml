@@ -1,0 +1,4 @@
+interface:
+  display_name: "Research"
+  short_description: "Conduz pesquisa rastreável e verificável"
+  default_prompt: "Use $research para pesquisar este tema com método, fontes e nível de confiança."

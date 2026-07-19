@@ -6,3 +6,8 @@ build/
 *.pyc
 .DS_Store
 .env
+audit.json
+audit.md
+*.egg-info/
+.coverage
+htmlcov/

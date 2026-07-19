@@ -1,0 +1,4 @@
+interface:
+  display_name: "Editorial"
+  short_description: "Estrutura e revisa publicações profissionais"
+  default_prompt: "Use $editorial para estruturar e revisar esta publicação com padrão profissional."
