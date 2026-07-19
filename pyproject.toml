@@ -25,7 +25,7 @@ aef = "aef.cli:main"
 
 [dependency-groups]
 dev = [
-  "pytest>=8.3,<9",
+  "pytest>=9.1.1,<10",
 ]
 
 [tool.hatch.build.targets.wheel]
