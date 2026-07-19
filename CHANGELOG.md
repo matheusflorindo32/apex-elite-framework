@@ -13,3 +13,9 @@ Este projeto segue [Semantic Versioning](https://semver.org/).
 - Controle de iteração e auditoria em Markdown/JSON.
 - Testes, documentação, exemplos e GitHub Actions.
 
+## [Unreleased]
+
+### Adicionado
+
+- Instruções para GPT personalizado APEX EPO.
+- Exportador determinístico da base de conhecimento do framework para ChatGPT.

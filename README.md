@@ -46,6 +46,16 @@ Em conversas, os aliases documentais continuam simples:
 
 Em ambientes com Skills nativas do Codex, use `$elite-project-orchestrator` ou `$commander`.
 
+## Uso no ChatGPT
+
+O repositório inclui instruções próprias para um GPT personalizado e um exportador determinístico de conhecimento:
+
+```bash
+uv run python scripts/export_chatgpt_knowledge.py --output apex-chatgpt-knowledge.md
+```
+
+No editor de GPTs do ChatGPT, use `chatgpt/INSTRUCTIONS.md` no campo de instruções e carregue o arquivo gerado como conhecimento. Depois de salvar o GPT com o nome `APEX EPO`, ele pode ser chamado no ChatGPT Web digitando `@` e selecionando o GPT. Os aliases internos `@EPO`, `@Commander` e especialistas são interpretados pelas instruções do AEF.
+
 ## Arquitetura
 
 - `src/aef/`: CLI, catálogo, planejamento, loop e validação;
