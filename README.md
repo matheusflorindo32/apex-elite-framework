@@ -10,6 +10,7 @@ Framework local, modular e sem dependência de API para planejar, revisar e audi
 - controle de iteração com orçamento e condição de parada;
 - auditoria em Markdown e JSON;
 - cinco exemplos completos, templates, checklists e documentação;
+- kit prático de referências visuais para prompts, com seleção por tipo de projeto;
 - testes automatizados e GitHub Actions;
 - licença Apache-2.0.
 
@@ -56,6 +57,16 @@ uv run python scripts/export_chatgpt_knowledge.py --output apex-chatgpt-knowledg
 
 No editor de GPTs do ChatGPT, use `chatgpt/INSTRUCTIONS.md` no campo de instruções e carregue o arquivo gerado como conhecimento. Depois de salvar o GPT com o nome `APEX EPO`, ele pode ser chamado no ChatGPT Web digitando `@` e selecionando o GPT. Os aliases internos `@EPO`, `@Commander` e especialistas são interpretados pelas instruções do AEF.
 
+## Direção visual e prompts
+
+Para sites, carrosséis, apresentações, infográficos, thumbnails, identidade visual e materiais científicos, use o [Kit Prático de Referências Visuais para Prompts](docs/VISUAL_PROMPT_KIT.md). Ele inclui:
+
+- seletor de ferramentas por tipo de projeto;
+- Prompt-Mestre Premium Elite;
+- comandos curtos como `/SITE`, `/CARROSSEL`, `/CIENTÍFICO` e `/AUDITORIA`;
+- regras de acessibilidade, consistência e prevenção de cópia;
+- combinações recomendadas para projetos científicos, táticos, premium e redes sociais.
+
 ## Arquitetura
 
 - `src/aef/`: CLI, catálogo, planejamento, loop e validação;
@@ -64,9 +75,9 @@ No editor de GPTs do ChatGPT, use `chatgpt/INSTRUCTIONS.md` no campo de instruç
 - `templates/`, `checklists/` e `workflows/`: recursos reutilizáveis;
 - `schemas/`: contratos de saída;
 - `tests/`: testes unitários, estruturais e de CLI;
-- `docs/`: arquitetura, uso, criação de Skills e modelo de qualidade.
+- `docs/`: arquitetura, uso, criação de Skills, modelo de qualidade e direção visual.
 
-Leia [Arquitetura](docs/ARCHITECTURE.md), [Uso](docs/USAGE.md), [Criação de Skills](docs/CREATING_SKILLS.md), [Modelo de qualidade](docs/QUALITY_MODEL.md) e [Versionamento](docs/VERSIONING.md).
+Leia [Arquitetura](docs/ARCHITECTURE.md), [Uso](docs/USAGE.md), [Criação de Skills](docs/CREATING_SKILLS.md), [Modelo de qualidade](docs/QUALITY_MODEL.md), [Kit Visual](docs/VISUAL_PROMPT_KIT.md) e [Versionamento](docs/VERSIONING.md).
 
 ## Garantias e limites
 
