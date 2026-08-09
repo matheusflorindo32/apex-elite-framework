@@ -2,7 +2,7 @@
 
 ## Status
 
-Aprovado conceitualmente pelo usuário em 2026-08-08. Esta especificação transforma a decisão arquitetural em contrato implementável para o `apex-elite-framework`.
+Design aprovado conceitualmente pelo usuário em 2026-08-08 e consolidado aqui como contrato implementável para o `apex-elite-framework`.
 
 ## Objetivo
 
@@ -12,35 +12,40 @@ A primeira prova de referência será a série **Anatomia do Torniquete**, compo
 
 ## Decisão arquitetural
 
-O motor será integrado ao repositório `matheusflorindo32/apex-elite-framework` em um pacote isolado `packages/tma-video-engine/`.
+O motor será integrado ao repositório público `matheusflorindo32/apex-elite-framework` em um pacote isolado `packages/tma-video-engine/`.
 
-O AEF permanece responsável por orquestração, Skills, seleção de equipe, checklists, qualidade e governança. O pacote de vídeo será responsável por timeline, composição e renderização. Integrações externas permanecem opcionais e isoladas, em conformidade com `docs/ARCHITECTURE.md`.
+O AEF permanece responsável por orquestração, Skills, seleção de equipe, checklists, qualidade e governança. O pacote de vídeo será responsável por manifesto, timeline, composição, áudio, captions, preview e renderização.
 
 A camada científica continua separada no `tropa-scientific-skills` e será acionada somente quando o conteúdo audiovisual fizer afirmações científicas, médicas ou técnicas que exijam auditoria de evidência.
 
+Integrações externas permanecem opcionais e isoladas, seguindo `docs/ARCHITECTURE.md`.
+
 ## Princípios obrigatórios
 
-1. **Fidelidade de asset vence estética.** Produtos, logos, diagramas e fotografias marcados como imutáveis não podem ser redesenhados, regenerados ou alterados semanticamente.
-2. **Render determinístico.** O mesmo manifesto, assets e versão do motor devem produzir a mesma timeline e composição.
-3. **Multi-formato por projeto.** Um único projeto deve gerar 9:16, 4:5, 1:1 e 16:9 sem duplicar conteúdo manualmente.
-4. **Áudio em camadas.** Voz, música e SFX são tracks independentes e mixados por regras explícitas.
+1. **Fidelidade de asset vence estética.** Produtos, logos, diagramas e fotografias marcados como `immutable` não podem ser redesenhados, regenerados ou semanticamente alterados.
+2. **Render determinístico.** O mesmo manifesto, assets, lockfile e versão do motor devem produzir a mesma timeline e composição.
+3. **Multi-formato por projeto.** Um único projeto gera 9:16, 4:5, 1:1 e 16:9 sem duplicação manual do conteúdo.
+4. **Áudio em camadas.** Voz, música e SFX são tracks independentes, mixados por regras explícitas.
 5. **Legendas seguras.** Captions respeitam safe areas específicas por formato.
-6. **QA bloqueante.** Ausência de asset obrigatório, overflow, asset imutável inválido, logo substituída ou configuração responsiva ausente bloqueia o render final.
-7. **Sem dependência de IA para render.** IA pode apoiar planejamento/direção, mas a renderização do vídeo deve funcionar localmente sem modelo generativo.
-8. **Nenhuma credencial no Git.** Serviços externos opcionais usam variáveis de ambiente e adaptadores isolados.
-9. **Uso humano revisável.** O projeto produz preview e evidências de QA; sucesso técnico não substitui inspeção visual final.
+6. **QA bloqueante.** Ausência de asset obrigatório, checksum inválido, overflow, logo substituída, clipping de áudio ou configuração responsiva inválida bloqueia o master.
+7. **Sem IA no caminho obrigatório de render.** IA pode apoiar direção ou planejamento, mas o renderer funciona localmente sem modelo generativo.
+8. **Nenhuma credencial no Git.** Serviços opcionais usam variáveis de ambiente e adaptadores isolados.
+9. **Inspeção humana permanece obrigatória para master final.** Sucesso técnico não equivale a aprovação visual.
+10. **Assets de produção não entram no repositório público por padrão.** Materiais Rhino/TMA reais ficam em workspace local/Drive, com rastreabilidade e política de direitos.
 
-## Stack
+## Stack V1
 
-- Node.js LTS
-- TypeScript
-- React
-- Remotion
-- FFmpeg para inspeção, normalização e pós-processamento quando necessário
-- Vitest para testes unitários
-- Zod para validação de manifestos
-- ESLint/TypeScript para qualidade estática
-- npm ou pnpm conforme compatibilidade definida no momento da implementação; o pacote não deve interferir no runtime Python atual do AEF
+- Node.js 24 LTS
+- pnpm 10
+- TypeScript 5.x
+- React 19
+- Remotion 4.x
+- FFmpeg/ffprobe para inspeção e pós-processamento
+- Vitest
+- Zod
+- ESLint
+
+Dependências JavaScript ficam isoladas no pacote `packages/tma-video-engine/` e não alteram o runtime Python do AEF.
 
 ## Estrutura proposta
 
@@ -49,13 +54,14 @@ apex-elite-framework/
 ├── packages/
 │   └── tma-video-engine/
 │       ├── package.json
+│       ├── pnpm-lock.yaml
 │       ├── tsconfig.json
 │       ├── remotion.config.ts
+│       ├── .gitignore
 │       ├── src/
 │       │   ├── index.ts
 │       │   ├── Root.tsx
-│       │   ├── compositions/
-│       │   │   └── TmaProjectComposition.tsx
+│       │   ├── compositions/TmaProjectComposition.tsx
 │       │   ├── components/
 │       │   │   ├── TmaIntro.tsx
 │       │   │   ├── TmaScene.tsx
@@ -86,36 +92,34 @@ apex-elite-framework/
 │       │       ├── validate.ts
 │       │       ├── preview.ts
 │       │       └── render.ts
-│       ├── projects/
+│       ├── examples/
 │       │   └── anatomia-torniquete/
-│       │       ├── project.json
-│       │       ├── captions.json
+│       │       ├── project.example.json
+│       │       ├── captions.example.json
 │       │       └── README.md
+│       ├── workspace/              # gitignored; assets reais e renders
 │       └── tests/
 │           ├── manifest.test.ts
 │           ├── timeline.test.ts
 │           ├── formats.test.ts
 │           ├── safeAreas.test.ts
 │           ├── assetPolicy.test.ts
+│           ├── captions.test.ts
+│           ├── audio.test.ts
 │           └── quality.test.ts
 ├── skills/
-│   ├── video-director/
-│   │   └── SKILL.md
-│   └── video-quality-auditor/
-│       └── SKILL.md
-├── workflows/
-│   └── tma-video-production.md
-├── checklists/
-│   └── video-premium-elite.md
-└── docs/
-    └── TMA_VIDEO_ENGINE.md
+│   ├── video-director/SKILL.md
+│   └── video-quality-auditor/SKILL.md
+├── workflows/tma-video-production.md
+├── checklists/video-premium-elite.md
+└── docs/TMA_VIDEO_ENGINE.md
 ```
 
 ## Manifesto do projeto
 
-Cada produção é descrita por um manifesto validado por Zod. O arquivo é declarativo e não contém código executável.
+Cada produção é descrita por JSON validado por Zod. O manifesto é declarativo e não contém código executável.
 
-Exemplo de contrato:
+Exemplo:
 
 ```json
 {
@@ -126,21 +130,25 @@ Exemplo de contrato:
   "defaultSceneDurationSec": 6,
   "assets": {
     "logo": {
-      "src": "assets/tma-logo.png",
-      "policy": "immutable"
+      "src": "workspace/anatomia-torniquete/assets/tma-logo.png",
+      "policy": "immutable",
+      "sha256": "<hash-calculado-localmente>"
     }
   },
   "audio": {
-    "voice": "audio/voice.wav",
-    "music": "audio/music.wav",
+    "voice": "workspace/anatomia-torniquete/audio/voice.wav",
+    "music": "workspace/anatomia-torniquete/audio/music.wav",
     "musicGainDb": -18,
-    "duckingGainDb": -8
+    "duckingGainDb": -8,
+    "targetLufs": -14,
+    "maxTruePeakDbtp": -1
   },
   "scenes": [
     {
       "id": "cover",
-      "asset": "scenes/00-cover.png",
+      "asset": "workspace/anatomia-torniquete/scenes/00-cover.png",
       "assetPolicy": "immutable",
+      "sha256": "<hash-calculado-localmente>",
       "durationSec": 4,
       "motionPreset": "hero-slow-push"
     }
@@ -149,11 +157,13 @@ Exemplo de contrato:
 }
 ```
 
-## Tipos de asset
+Os valores `sha256` são calculados pelo comando de ingestão/validação local; não são inventados nem preenchidos manualmente em produção.
+
+## Políticas de asset
 
 ### `immutable`
 
-Pode receber somente transformações não destrutivas de composição:
+Exige checksum SHA-256 e permite somente transformações não destrutivas de composição:
 
 - crop;
 - scale uniforme;
@@ -163,113 +173,109 @@ Pode receber somente transformações não destrutivas de composição:
 - opacidade;
 - entrada/saída da cena.
 
-Não pode receber:
+É proibido:
 
-- geração ou preenchimento generativo;
-- distorção de proporção;
-- alteração de cor que mude identidade do produto;
-- remoção ou criação de partes;
-- substituição de logo;
-- reconstrução de pixels ausentes.
+- gerar ou preencher pixels;
+- distorcer proporção;
+- alterar cor de forma que mude identidade de produto/branding;
+- remover ou criar partes;
+- substituir logo;
+- reconstruir componente;
+- aplicar filtros que comprometam leitura técnica.
 
 ### `decorative`
 
-Pode receber efeitos visuais mais amplos, desde que não altere informação técnica essencial.
+Aceita efeitos mais amplos, desde que nenhuma informação técnica dependa deles.
 
 ### `generated`
 
-Conteúdo explicitamente sintético e não documental. Nunca pode ser confundido com fotografia real de produto ou evidência técnica.
+Conteúdo explicitamente sintético. Nunca pode ser apresentado como fotografia documental real ou evidência técnica.
 
-## Formatos de saída
+## Formatos de saída e safe areas
 
-| Nome | Resolução | Uso principal |
-|---|---:|---|
-| `vertical` | 1080×1920 | Reels, Shorts, TikTok |
-| `portrait` | 1080×1350 | Feed 4:5 |
-| `square` | 1080×1080 | Feed, Canva, reutilização |
-| `landscape` | 1920×1080 | YouTube, aula, apresentação |
+| Nome | Resolução | Safe area padrão (L/R/T/B) | Uso |
+|---|---:|---:|---|
+| `vertical` | 1080×1920 | 7.5% / 7.5% / 8% / 20% | Reels, Shorts, TikTok |
+| `portrait` | 1080×1350 | 6% / 6% / 6% / 12% | Feed 4:5 |
+| `square` | 1080×1080 | 6% / 6% / 6% / 10% | Feed, Canva |
+| `landscape` | 1920×1080 | 5% / 5% / 5% / 8% | YouTube, aula |
 
-Cada formato possui safe areas próprias para títulos, logo, legendas e CTA.
+Safe areas são defaults do motor e podem ser mais restritivas por projeto. Um projeto nunca pode relaxar uma área abaixo de 4% em qualquer lado.
 
 ## Motion system TMA
 
-A V1 deve favorecer movimento técnico e controlado.
-
 Presets mínimos:
 
-- `hero-slow-push`: aproximação lenta de 100% para aproximadamente 106% durante a cena;
-- `macro-focus`: zoom para uma região previamente definida sem inventar detalhes;
+- `hero-slow-push`: zoom linear/suavizado de 100% para 106% ao longo da cena;
+- `macro-focus`: pan/zoom para região declarada por coordenadas normalizadas;
 - `callout-draw`: linha técnica vermelha desenhada progressivamente;
-- `title-rise`: título com deslocamento curto e fade;
-- `caption-emphasis`: ênfase por bloco de legenda sem karaoke excessivo;
-- `clean-cut`: corte seco premium;
-- `soft-dissolve`: dissolve curto para transições contextuais.
+- `title-rise`: deslocamento vertical curto + fade;
+- `caption-emphasis`: ênfase por bloco sem karaoke agressivo;
+- `clean-cut`: corte seco;
+- `soft-dissolve`: dissolve de 6 a 12 frames.
 
-Transições extravagantes, glitch aleatório, shake excessivo e efeitos que prejudiquem leitura técnica ficam fora da V1.
+Ficam fora da V1: glitch aleatório, shake excessivo, transições chamativas sem função narrativa e qualquer efeito que prejudique leitura técnica.
 
 ## Componentes reutilizáveis
 
 ### `ProductPhoto`
 
-Renderiza fotografia ou arte aprovada respeitando `assetPolicy`. Deve preservar proporção e impedir deformação acidental.
+Renderiza fotografia ou arte aprovada respeitando `assetPolicy`, preservando proporção.
 
 ### `LogoLockup`
 
-Renderiza o arquivo oficial de logo. Para `immutable`, falha se o asset estiver ausente ou se a dimensão/proporção esperada não puder ser preservada.
+Renderiza o logo oficial e valida checksum/proporção quando `immutable`.
 
 ### `TechnicalCallout`
 
-Desenha linha, marcador e rótulo sobre coordenadas declaradas. Não altera o asset base.
+Desenha linha, marcador e rótulo sobre coordenadas declaradas sem alterar o bitmap base.
 
 ### `MacroZoom`
 
-Aplica pan/zoom para uma região definida por coordenadas normalizadas.
+Aplica pan/zoom não destrutivo para região definida por coordenadas normalizadas.
 
 ### `CaptionTrack`
 
-Renderiza legendas a partir de timestamps e respeita safe areas de cada formato.
+Renderiza blocos temporizados dentro da safe area do formato.
 
 ### `TmaIntro` e `TmaOutro`
 
-Padronizam abertura, assinatura visual e CTA sem exigir remontagem manual em cada projeto.
+Padronizam abertura, assinatura visual e CTA.
 
 ## Timeline
 
-A timeline é derivada do manifesto.
+Regras determinísticas:
 
-Regras:
-
-1. duração de cena explícita vence o default do projeto;
-2. se houver narração temporizada, a cena não pode terminar antes do trecho de voz correspondente;
-3. duração final inclui transições sem duplicar frames de forma imprevisível;
-4. o cálculo é testável sem iniciar o renderer;
-5. a mesma timeline alimenta todos os formatos.
+1. duração de cena explícita vence `defaultSceneDurationSec`;
+2. cena com narração temporizada não pode terminar antes do bloco de voz associado;
+3. transições têm duração explícita em frames;
+4. duração final é calculável em função pura, sem iniciar renderer;
+5. a mesma timeline semântica alimenta os quatro formatos;
+6. arredondamento de tempo para frames usa `Math.round(seconds * fps)` e fica coberto por testes.
 
 ## Áudio
-
-A V1 aceita áudio pré-produzido em WAV ou MP3.
 
 Tracks:
 
 - `voice` — prioridade máxima;
 - `music` — trilha de fundo;
-- `sfx` — impactos, whooshes discretos e acentos de callout.
+- `sfx` — impactos e acentos discretos.
 
-Regras mínimas:
+Defaults V1:
 
-- ducking de música durante fala;
-- fade-in e fade-out configuráveis;
-- ausência de clipping no master;
-- voz compreensível em reprodução móvel;
-- render deve funcionar sem música ou sem voz quando o manifesto declarar essas faixas como opcionais.
+- target integrado do master: **-14 LUFS ± 1 LU**;
+- true peak máximo: **-1 dBTP**;
+- ducking padrão da música sob voz: **8 dB**;
+- fade-in/out padrão de música: **500 ms**;
+- clipping detectado bloqueia o master.
 
-Integração automática com TTS fica fora do núcleo V1. Um adaptador futuro pode gerar a faixa de voz antes da renderização, sem acoplar o core a um fornecedor.
+O projeto pode omitir música ou voz quando essas tracks forem explicitamente opcionais.
+
+TTS automático fica fora do core V1. Futuro adaptador pode produzir WAV/MP3 antes do render sem acoplar fornecedor ao motor.
 
 ## Legendas
 
-Entrada primária: `captions.json` com blocos temporizados.
-
-Exemplo:
+Entrada primária: `captions.json`.
 
 ```json
 [
@@ -283,96 +289,105 @@ Exemplo:
 
 Regras:
 
-- no máximo duas linhas por bloco no preset padrão;
+- `startMs >= 0`;
+- `endMs > startMs`;
+- blocos não podem se sobrepor no preset padrão;
+- máximo de duas linhas por bloco;
 - largura máxima limitada pela safe area;
-- fonte e contraste definidos por tokens TMA;
-- nenhuma legenda pode cobrir CTA, logo ou região crítica declarada da imagem;
-- overflow bloqueia o gate de qualidade.
+- nenhum bloco pode cobrir logo, CTA ou região crítica declarada;
+- overflow bloqueia QA.
 
 ## Direção criativa
 
-O `video-director` será uma Skill AEF responsável por converter objetivo, público, duração e assets em decisões de narrativa e motion.
-
-A Skill não renderiza vídeo. Ela define:
+A nova Skill `video-director` converte objetivo, público, duração e assets em decisões explícitas de:
 
 - estrutura narrativa;
 - ritmo;
 - duração aproximada por cena;
-- presets de movimento;
+- preset de movimento;
 - intensidade de SFX;
 - prioridade visual;
 - CTA;
-- riscos de excesso de informação.
+- risco de excesso de informação.
 
-O motor consome somente parâmetros explícitos validados no manifesto.
+A Skill não renderiza e não altera assets. O motor consome somente manifesto validado.
 
 ## QA audiovisual
 
-O `video-quality-auditor` aplica o modelo de qualidade já usado pelo AEF.
+A Skill `video-quality-auditor` segue o modelo de severidade do AEF.
 
-### Achados críticos
+### Crítico — bloqueia
 
-- asset médico/técnico `immutable` substituído, deformado ou semanticamente alterado;
-- logo oficial ausente quando obrigatória;
-- arquivo de projeto inválido impedindo render;
-- output com frames corrompidos ou áudio ausente quando obrigatório.
+- asset técnico/médico `immutable` com checksum divergente;
+- logo oficial ausente/substituído quando obrigatório;
+- manifesto inválido impedindo render;
+- frames corrompidos;
+- áudio obrigatório ausente.
 
-### Achados altos
+### Alto — bloqueia
 
-- texto ou legenda fora da área segura;
-- overflow de texto;
-- produto cortado em região declarada como essencial;
-- relação de aspecto incorreta;
+- texto/legenda fora de safe area;
+- overflow;
+- produto cortado em região essencial declarada;
+- aspect ratio incorreto;
 - narração truncada;
-- clipping de áudio;
+- clipping;
+- true peak acima de -1 dBTP no master;
 - cena sem asset obrigatório.
 
-### Achados médios
+### Médio
 
 - contraste insuficiente;
 - transição inconsistente;
-- ritmo muito acelerado para leitura;
-- SFX excessivo;
-- redução visível de qualidade sem invalidar conteúdo.
+- ritmo excessivamente rápido para leitura;
+- SFX exagerado;
+- perda visual perceptível sem invalidar conteúdo.
 
-### Achados baixos
+### Baixo
 
-- microalinhamentos;
-- ajustes cosméticos;
-- inconsistências pequenas de espaçamento.
+- microalinhamento;
+- espaçamento localizado;
+- refinamento cosmético.
 
 Nenhum achado crítico ou alto pode permanecer no master aprovado.
 
-## Preview e evidência
+## CLI V1
 
-A CLI do pacote terá três comandos conceituais:
+Comandos públicos do pacote:
 
 ```bash
-npm run validate -- --project projects/anatomia-torniquete/project.json
-npm run preview -- --project projects/anatomia-torniquete/project.json
-npm run render -- --project projects/anatomia-torniquete/project.json --format vertical
+pnpm tma-video validate --project workspace/anatomia-torniquete/project.json
+pnpm tma-video preview --project workspace/anatomia-torniquete/project.json
+pnpm tma-video render --project workspace/anatomia-torniquete/project.json --format vertical
+pnpm tma-video render --project workspace/anatomia-torniquete/project.json --all
 ```
 
-`validate` não renderiza o vídeo; valida schema, assets, políticas, safe areas e coerência temporal quando possível.
+### `validate`
 
-`preview` abre o Remotion Studio para inspeção humana.
+Valida schema, existência de assets, SHA-256, políticas, captions, safe areas declaradas e coerência temporal sem render completo.
 
-`render` produz o master de um formato específico ou todos os formatos declarados.
+### `preview`
 
-## Integração com o AEF
+Abre Remotion Studio para inspeção humana.
 
-O AEF ganhará um tipo de projeto `video` somente se a implementação puder preservar compatibilidade com os tipos atuais.
+### `render`
 
-Equipe padrão recomendada:
+Produz um formato ou todos os formatos e executa inspeção de mídia pós-render com ffprobe/FFmpeg.
 
-- `@Commander` / orquestração quando o projeto for longo;
-- `@Design` / direção visual;
-- `@VideoDirector` / narrativa e motion;
-- `@QA` / gate geral;
-- `@VideoQA` / auditoria audiovisual;
-- `@Scientific` opcional quando houver afirmações científicas ou médicas.
+## Integração com AEF
 
-Os aliases novos devem seguir `docs/CREATING_SKILLS.md`: alias único, função clara e critérios de aprovação explícitos.
+A V1 adiciona o tipo de projeto `video` preservando os tipos existentes e seus testes.
+
+Equipe padrão:
+
+- `@Commander` quando o projeto for longo;
+- `@Design` para direção visual;
+- `@VideoDirector` para narrativa/motion;
+- `@QA` para gate geral;
+- `@VideoQA` para auditoria audiovisual;
+- `@Scientific` somente quando houver afirmações científicas/médicas relevantes.
+
+Aliases novos obedecem `docs/CREATING_SKILLS.md`: alias único iniciado por `@`, função/gatilhos claros, responsabilidade e critério de aprovação explícitos.
 
 ## Workflow de produção
 
@@ -380,6 +395,8 @@ Os aliases novos devem seguir `docs/CREATING_SKILLS.md`: alias único, função 
 brief
   ↓
 seleção de assets aprovados
+  ↓
+ingestão local + SHA-256
   ↓
 classificação immutable/decorative/generated
   ↓
@@ -393,16 +410,16 @@ QA técnico + inspeção humana
   ↓
 render multi-formato
   ↓
-QA de masters
+ffprobe/FFmpeg + QA dos masters
   ↓
-aprovação/publicação externa
+aprovação humana
 ```
 
-Publicação em redes sociais não faz parte da V1.
+Publicação em redes sociais fica fora da V1.
 
 ## Caso de referência: Anatomia do Torniquete
 
-A sequência canônica é:
+Ordem canônica:
 
 1. Capa — Anatomia do Torniquete
 2. Parte 1 — Marcador integrado
@@ -415,73 +432,81 @@ A sequência canônica é:
 9. Parte 8 — Resumo dos sete componentes
 10. CTA — próximo módulo: aplicação do torniquete passo a passo
 
-O projeto deve aceitar as artes aprovadas como assets `immutable`, usar movimentos de câmera não destrutivos e produzir os quatro formatos declarados.
+Os PNGs/fotos reais ficam em `workspace/anatomia-torniquete/` ou são montados a partir de Drive localmente. Eles não são commitados no repositório público sem licença/autorização explícita.
+
+O exemplo versionado contém somente manifesto de exemplo, captions de exemplo e instruções de ingestão.
 
 ## Critérios de aceite V1
 
 A V1 está concluída somente quando:
 
-1. o manifesto do projeto é validado por schema;
-2. um projeto de dez cenas gera timeline determinística;
-3. assets `immutable` são protegidos por política testável;
-4. as quatro resoluções são registradas e renderizáveis;
-5. safe areas diferem por formato e são verificadas;
-6. legendas temporizadas são renderizadas sem overflow no fixture de referência;
-7. voz, música e SFX podem coexistir no projeto;
-8. o master não apresenta clipping detectável no fixture de áudio;
-9. o caso `anatomia-torniquete` abre em preview;
-10. ao menos um master de referência é renderizado com sucesso em teste de integração/local;
-11. testes unitários cobrem manifest, timeline, formatos, safe areas, asset policy e quality gates;
-12. documentação explica instalação, validação, preview, render e criação de novo projeto;
-13. duas Skills AEF (`video-director` e `video-quality-auditor`) passam pelo validador existente;
-14. nenhum teste atual do AEF regride;
-15. nenhuma credencial ou asset privado é adicionado ao repositório.
+1. manifesto é validado por Zod;
+2. projeto de 10 cenas gera timeline determinística;
+3. `immutable` exige e verifica SHA-256;
+4. quatro resoluções são registradas e renderizáveis;
+5. safe areas têm defaults exatos e validação;
+6. captions temporizadas passam no fixture sem overflow;
+7. voice/music/SFX coexistem em composição;
+8. inspeção pós-render confirma master em -14 LUFS ±1 e true peak ≤ -1 dBTP no fixture de áudio;
+9. caso local `anatomia-torniquete` abre em preview com assets de produção montados fora do Git;
+10. ao menos um master de referência é renderizado localmente com sucesso;
+11. testes unitários cobrem manifest, timeline, formats, safe areas, asset policy, captions, audio e quality;
+12. documentação cobre instalação, ingestão, validate, preview, render e criação de projeto;
+13. Skills `video-director` e `video-quality-auditor` passam no validador AEF;
+14. tipo `video` entra na seleção do AEF sem regressão dos tipos atuais;
+15. `uv run aef validate` e suíte Python existente continuam verdes;
+16. nenhuma credencial, foto Rhino ou asset TMA privado é adicionado ao Git;
+17. inspeção humana do master de referência não possui achados críticos/altos.
 
 ## Fora de escopo da V1
 
 - geração de vídeo por IA;
-- alteração generativa de fotografias de produto;
+- image-to-video de produto técnico;
+- alteração generativa de fotografias;
 - clonagem de voz;
-- integração obrigatória com ElevenLabs, OpenAI, HeyGen ou outro fornecedor;
+- integração obrigatória com ElevenLabs, OpenAI, HeyGen ou fornecedor específico;
 - publicação automática em Instagram, YouTube ou TikTok;
-- editor visual próprio da TMA;
+- editor visual próprio;
 - render distribuído em nuvem;
 - banco de dados;
-- autenticação de usuários;
+- autenticação;
 - colaboração multiusuário;
 - substituição do Canva.
 
 ## Segurança, direitos e licenças
 
 - Assets externos mantêm seus próprios direitos e licenças.
-- O repositório não deve armazenar conteúdo cuja redistribuição não esteja autorizada.
-- O Remotion deve ter sua licença e modalidade de uso verificadas antes de implantação comercial em escala.
-- Fotos de produto usadas como referência técnica devem permanecer rastreáveis à origem aprovada do projeto.
-- O motor não deve sugerir que conteúdo gerado é fotografia documental real.
+- O repositório público não armazena material cuja redistribuição não esteja autorizada.
+- A licença e modalidade de uso do Remotion devem ser verificadas antes de implantação comercial em escala.
+- Fotos de produto usadas tecnicamente permanecem rastreáveis à origem aprovada.
+- Conteúdo `generated` é rotulado e nunca apresentado como fotografia documental.
+- Workspaces de produção são gitignored.
 
 ## Evolução pós-V1
 
-Ordem recomendada, sem compromisso de implementação na V1:
-
 1. adaptadores de TTS;
-2. transcrição e alinhamento automático;
-3. biblioteca de presets TMA por tipo de conteúdo;
-4. ingestão assistida de assets do Drive;
+2. transcrição/alinhamento automático;
+3. presets TMA por tipo de conteúdo;
+4. ingestão assistida a partir do Google Drive;
 5. export de projeto para revisão no Canva;
-6. pipeline CI para renders de baixa resolução e QA;
+6. render de preview em CI;
 7. render em nuvem opcional;
 8. catálogo interno de músicas/SFX licenciados.
 
-## Decisões finais
+## Decisões finais vinculantes
 
 - Repositório: `apex-elite-framework`.
-- Unidade de isolamento: `packages/tma-video-engine/`.
-- Renderer: Remotion.
+- Pacote isolado: `packages/tma-video-engine/`.
+- Node: 24 LTS.
+- Package manager: pnpm 10.
+- Renderer: Remotion 4.x.
 - Core determinístico e local.
-- Assets técnicos e logos suportam política `immutable`.
-- Primeiro projeto: `anatomia-torniquete`.
-- Saídas V1: 9:16, 4:5, 1:1 e 16:9.
-- Narração: faixa de áudio fornecida ao projeto; TTS automático fica desacoplado.
+- `immutable` exige SHA-256.
+- Primeiro caso: `anatomia-torniquete`.
+- Saídas: 1080×1920, 1080×1350, 1080×1080 e 1920×1080.
+- Áudio master: -14 LUFS ±1; true peak ≤ -1 dBTP.
+- Narração: arquivo fornecido ao projeto; TTS desacoplado.
 - Legendas: timestamps estruturados.
-- QA: bloqueia críticos e altos conforme o modelo AEF.
+- QA: críticos e altos bloqueiam.
+- Assets reais de produção: fora do Git público por padrão.
 - Publicação automática: fora da V1.
