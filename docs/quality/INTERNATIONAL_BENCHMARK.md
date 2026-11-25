@@ -5,8 +5,8 @@ On 2026-11-25 we retrieved each public repository, default-branch commit, README
 | Reference and inspected documentation | License at repository level | Maintenance signal (last push, UTC) | Principle applied to APEX review |
 |---|---|---|---|
 | [agentskills/agentskills](https://github.com/agentskills/agentskills/blob/83021e2be457a9b6679148719c1f6074f0ad975e/README.md) | Apache-2.0 | Open, 2026-11-04 | Publish a portable SKILL.md with a clear activation description. |
-| [openai/openai-agents-python](https://github.com/openai/openai-agents-python/blob/4e162c79a4a951c6fc8b698d5c8279c1963c099b/README.md) | MIT | Open, 2026-11-25 | Separate orchestration responsibilities and document handoffs. |
-| [langchain-ai/langgraph](https://github.com/langchain-ai/langgraph/blob/f96105368f9e9385d4c9e38bffaa457aba17f095/README.md) | MIT | Open, 2026-11-25 | State explicit stop and review conditions before repeating a step. |
+| [openai/openai-agents-python](https://raw.githubusercontent.com/openai/openai-agents-python/4e162c79a4a951c6fc8b698d5c8279c1963c099b/README.md) | MIT | Open, 2026-11-25 | Separate orchestration responsibilities and document handoffs. |
+| [langchain-ai/langgraph](https://raw.githubusercontent.com/langchain-ai/langgraph/f96105368f9e9385d4c9e38bffaa457aba17f095/README.md) | MIT | Open, 2026-11-25 | State explicit stop and review conditions before repeating a step. |
 | [microsoft/autogen](https://github.com/microsoft/autogen/blob/8390985108cb1e3881f5f7297765758d8ad2540c/README.md) | MIT (code), CC-BY-4.0 (documentation) | Archived, 2026-11-12 | Explain project lifecycle and migration paths to readers. |
 | [pydantic/pydantic-ai](https://github.com/pydantic/pydantic-ai/blob/a30f0264d760c5904d688f01115c63fe757c2ca9/README.md) | MIT | Open, 2026-11-25 | Describe expected outputs as structured data and validate them. |
 | [modelcontextprotocol/python-sdk](https://github.com/modelcontextprotocol/python-sdk/blob/77001c96f9507be0f4d009b83210a384a5e08bda/README.md) | MIT | Open, 2026-11-17 | Treat a protocol adapter as a separately tested integration. |

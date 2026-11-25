@@ -21,7 +21,7 @@ def discover_files(root: Path) -> list[Path]:
         if not path.is_file():
             raise FileNotFoundError(path)
         files.append(path)
-    return sorted(files)
+    return sorted(files, key=lambda path: path.relative_to(root).as_posix())
 
 
 def render_bundle(root: Path, output_dir: Path | None = None) -> str:
