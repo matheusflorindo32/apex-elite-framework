@@ -7,7 +7,7 @@ import re
 from pathlib import Path
 from typing import Any
 
-from .catalog import Skill, load_project_types, load_skills
+from .catalog import load_project_types, load_skills, resource_path
 
 
 def resolve_project_type(root: Path, requested_type: str | None, request: str = "") -> str:
@@ -105,7 +105,7 @@ def plan_to_markdown(plan: dict[str, Any]) -> str:
 
 def render_brief(root: Path, project_type: str) -> str:
     definition = load_project_types(root)[project_type]
-    template = root / str(definition.get("template", "templates/project-brief.md"))
+    template = resource_path(root, "templates", str(definition.get("template", "templates/project-brief.md")))
     content = template.read_text(encoding="utf-8")
     return f"<!-- Tipo de projeto: {project_type} -->\n\n{content.rstrip()}\n"
 
@@ -114,7 +114,7 @@ def render_checklists(root: Path, project_type: str) -> str:
     definition = load_project_types(root)[project_type]
     sections = []
     for relative in definition.get("checklists", ["checklists/final-qa.md"]):
-        path = root / str(relative)
+        path = resource_path(root, "checklists", str(relative))
         sections.append(path.read_text(encoding="utf-8").strip())
     return "\n\n---\n\n".join(sections) + "\n"
 

@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "apex-elite-framework"
-version = "1.0.0"
+version = "1.0.1rc1"
 description = "Framework local para planejar, revisar e auditar projetos complexos com skills especializadas."
 readme = "README.md"
 requires-python = ">=3.11"
@@ -25,7 +25,7 @@ aef = "aef.cli:main"
 
 [dependency-groups]
 dev = [
-  "pytest>=8.3,<9",
+  "pytest>=9.0.3,<10",
 ]
 
 [tool.hatch.build.targets.wheel]
@@ -35,3 +35,11 @@ packages = ["src/aef"]
 addopts = "-q"
 testpaths = ["tests"]
 
+
+[tool.hatch.build.targets.wheel.force-include]
+"config" = "aef/resources/config"
+"skills" = "aef/resources/skills"
+"templates" = "aef/resources/templates"
+"checklists" = "aef/resources/checklists"
+"schemas" = "aef/resources/schemas"
+"workflows" = "aef/resources/workflows"

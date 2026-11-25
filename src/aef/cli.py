@@ -123,7 +123,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             return 0 if report.passed else 1
 
         parser.error("comando não implementado")
-    except (FileNotFoundError, ValueError, json.JSONDecodeError) as exc:
+    except (OSError, ValueError) as exc:
         print(f"erro: {exc}", file=sys.stderr)
         return 2
 

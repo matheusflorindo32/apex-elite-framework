@@ -25,3 +25,13 @@ Responsável por arquitetura da informação, hierarquia, tipografia, consistên
 - sumário e numeração corretos;
 - hierarquia clara;
 - coerência entre versão impressa e digital.
+
+## Aplicação prática
+
+- **Entrada.** Texto autorizado, público, suporte e formato de entrega.
+- **Entrega.** Esqueleto de seções, alterações editoriais e verificações de leitura.
+- **Aceite e parada.** Preserve o sentido e identifique questões de conteúdo para o autor. Sem prova diagramada, deixe a inspeção de cortes pendente.
+
+Pedido de exemplo
+
+> Organize este resumo público em três slides e preserve as ressalvas.

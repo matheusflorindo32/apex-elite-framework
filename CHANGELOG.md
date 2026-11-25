@@ -2,6 +2,13 @@
 
 Este projeto segue [Semantic Versioning](https://semver.org/).
 
+## 1.0.1-rc.1 · candidata para revisão
+
+- Corrige descoberta de recursos após instalação e validação de caminhos.
+- Distribui contexto Markdown e arquivos ZIP com manifesto e verificação de integridade.
+- Acrescenta guias em português e inglês, catálogo, exemplos e matriz de compatibilidade.
+- Inclui o exportador de conhecimento, instruções para GPT personalizado e kit visual que estavam em Unreleased.
+
 ## [1.0.0] - 2026-07-19
 
 ### Adicionado
@@ -12,10 +19,3 @@ Este projeto segue [Semantic Versioning](https://semver.org/).
 - Validação de estrutura, front matter, aliases, links, schemas e exemplos.
 - Controle de iteração e auditoria em Markdown/JSON.
 - Testes, documentação, exemplos e GitHub Actions.
-
-## [Unreleased]
-
-### Adicionado
-
-- Instruções para GPT personalizado APEX EPO.
-- Exportador determinístico da base de conhecimento do framework para ChatGPT.

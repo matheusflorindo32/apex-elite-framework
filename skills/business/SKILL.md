@@ -17,3 +17,13 @@ Avalia viabilidade, modelo de receita, operação, custos, riscos, aquisição, 
 - riscos;
 - métricas;
 - próximos experimentos.
+
+## Aplicação prática
+
+- **Entrada.** Público, problema, restrições e hipóteses de custo e receita.
+- **Entrega.** Plano de experimento com métrica, custo e regra de decisão.
+- **Aceite e parada.** Identifique a origem de cada número. Se faltarem dados, formule hipóteses testáveis e deixe a decisão de investimento ao responsável.
+
+Pedido de exemplo
+
+> Planeje como entrevistar cinco docentes antes de investir em um curso.

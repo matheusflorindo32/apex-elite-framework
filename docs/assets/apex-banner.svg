@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 180" role="img" aria-labelledby="title desc">
+  <title id="title">Apex Elite Framework</title>
+  <desc id="desc">Three rising lines meet at a summit beside the project name.</desc>
+  <rect width="960" height="180" rx="12" fill="#112b39"/>
+  <g fill="none" stroke-linejoin="round" stroke-width="7">
+    <path d="M44 135 106 38l62 97" stroke="#94e8c3"/>
+    <path d="m69 135 37-57 37 57" stroke="#64baba"/>
+    <path d="m94 135 12-18 12 18" stroke="#f6ce85"/>
+  </g>
+  <text x="208" y="107" fill="#f4faf7" font-family="Inter,Arial,sans-serif" font-size="62" font-weight="bold">Apex Elite Framework</text>
+</svg>

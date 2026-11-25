@@ -28,3 +28,13 @@ Planeja e valida arquitetura, implementação, segurança, testes, desempenho, a
 - documentar execução;
 - não expor segredos;
 - registrar decisões arquiteturais.
+
+## Aplicação prática
+
+- **Entrada.** Requisitos, ambiente, interfaces e restrições de dados.
+- **Entrega.** Decisão técnica, mudança verificável ou plano com critérios de teste.
+- **Aceite e parada.** Registre comando e resultado observado. Se faltar o ambiente, marque a execução pendente e proteja credenciais.
+
+Pedido de exemplo
+
+> Planeje um aplicativo local de agenda com exportação e teste de restauração.

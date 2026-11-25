@@ -34,3 +34,20 @@ def test_bundle_is_deterministic(repo_root):
     exporter = load_exporter(repo_root)
     assert exporter.render_bundle(repo_root) == exporter.render_bundle(repo_root)
 
+
+
+def test_export_rejects_linked_sources(repo_root, tmp_path):
+    import pytest
+
+    exporter = load_exporter(repo_root)
+    root = tmp_path / "checkout"
+    (root / "scripts").mkdir(parents=True)
+    (root / "scripts/bundle_sources.txt").write_text("sample.md\n")
+    outside = tmp_path / "sample.md"
+    outside.write_text("fixture")
+    try:
+        (root / "sample.md").symlink_to(outside)
+    except OSError:
+        pytest.skip("symlinks unavailable on this filesystem")
+    with pytest.raises(ValueError, match="Unsafe bundle path"):
+        exporter.render_bundle(root)
