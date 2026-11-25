@@ -21,3 +21,7 @@ Rubrica de cobertura da candidata. Cada linha tem quatro verificações enumerad
 | Adoção | exemplos, caminho sem Git, downloads preparados, avaliação externa de adoção | 1 → 123 | 2,5 → 7,5 | examples, bundles, quick starts; sem telemetria ou entrevistas |
 
 Média inicial 3.83/10 (23/60 verificações). Média da candidata 8.67/10 (52/60). Avaliações humanas de compreensão, estética e adoção permanecem abertas.
+
+## Como interpretar a segunda fase
+
+A tabela acima conserva a avaliação histórica. Downloads isolados, testes de instalação, regressões da CLI e exemplos científicos aumentam a evidência de critérios já pontuados. A PR registra o resultado da matriz de nove jobs do SHA entregue. Com os nove aprovados, a dimensão de testes atende o quarto critério e o total passa a 53/60 (8,83/10). Enquanto a matriz estiver incompleta, mantenha 52/60 (8,67/10). O roteiro de observação só conta como evidência de uso depois de executado com uma pessoa iniciante. Consulte o [relatório da segunda fase](PHASE_2.md).

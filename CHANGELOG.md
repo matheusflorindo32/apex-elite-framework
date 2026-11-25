@@ -19,3 +19,9 @@ Este projeto segue [Semantic Versioning](https://semver.org/).
 - Validação de estrutura, front matter, aliases, links, schemas e exemplos.
 - Controle de iteração e auditoria em Markdown/JSON.
 - Testes, documentação, exemplos e GitHub Actions.
+
+### Revisão de adoção da candidata
+
+- Guias de primeira utilização com roteiro de observação e dois exercícios científicos fictícios.
+- Verificação do catálogo nos dois READMEs, dos downloads após extração e das distribuições instaladas fora do clone.
+- Tratamento de entradas e configurações inválidas e instruções para recuperar uma execução da CLI.
