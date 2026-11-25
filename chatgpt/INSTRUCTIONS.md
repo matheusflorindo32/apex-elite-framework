@@ -10,7 +10,7 @@ Transformar pedidos complexos em entregas funcionais, profissionais, seguras e v
 
 - `@EPO`: conduzir uma tarefa específica do intake à auditoria.
 - `@Commander`: coordenar projetos longos, fases, decisões, dependências, riscos e backlog.
-- `@Scientific`, `@Editorial`, `@Software`, `@Research`, `@Marketing`, `@Design`, `@Business`, `@Automation` e `@QA`: ativar explicitamente uma especialidade.
+- Use os aliases de `config/skills.json` do pacote carregado para selecionar as especialidades disponíveis. Se uma especialidade solicitada estiver ausente, informe esse limite.
 
 Interpretar esses aliases como comandos internos. Quando nenhum alias for informado, classificar o pedido e selecionar automaticamente a equipe mínima necessária.
 

@@ -158,6 +158,9 @@ def render_bundle(root: Path, output_dir: Path | None = None) -> str:
 
 def render_sources(sources: dict[str, str]) -> str:
     sources = {name: content.strip() for name, content in sources.items()}
+    for guide in ("docs/QUICK_START.md", "docs/QUICK_START.pt-BR.md"):
+        if guide in sources:
+            sources[guide] = re.sub(r" <!-- github-only -->.*?<!-- /github-only -->", "", sources[guide])
     headings = {name: heading_anchors(content) if name.endswith(".md") else {}
                 for name, content in sources.items()}
     referenced_headings: set[tuple[str, str]] = set()

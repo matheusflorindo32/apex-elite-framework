@@ -67,7 +67,7 @@ Start with an example or research materials you have permission to share.
 Verify sources and conclusions yourself before using the result.
 
 The [included catalog](config/skills.json) lists the toolkit's six skills.
-Use the separate APEX_SKILLS.zip for other aliases such as @Design.
+Use the separate APEX_SKILLS.zip for specialties outside this catalog.
 
 [Final checklist](checklists/final-qa.md) · [Version](VERSION) · [License](LICENSE)
 """

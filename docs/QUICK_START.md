@@ -4,7 +4,7 @@
 
 Imagine you have 30 minutes to teach students how to judge a source. Try planning the class with the project's delivery coordinator, called @EPO. Set aside 5–10 minutes to try it. All you need is a browser and a chat assistant that accepts text.
 
-1. **Get the instructions.** Open the [coordinator skill](../skills/elite-project-orchestrator/SKILL.md). On GitHub, use **Copy raw file** or **Download raw file** in the file toolbar. The file is plain text. For all eleven skills together, download the [knowledge file](../bundles/APEX_CHATGPT_KNOWLEDGE.md) the same way.
+1. **Use the coordinator instructions.** Read the [coordinator skill](../skills/elite-project-orchestrator/SKILL.md). <!-- github-only --> On GitHub, use **Copy raw file** or **Download raw file** in the file toolbar. The file is plain text. For all eleven skills together, download the [knowledge file](../bundles/APEX_CHATGPT_KNOWLEDGE.md) the same way.<!-- /github-only -->
 2. **Give your chat the context.** Start a new conversation. Attach the downloaded file or paste the coordinator instructions. Copy the following request into the same conversation.
 
    > @EPO Plan a 30-minute class for first-year students on checking a source. Give me one learning objective, three timed activities and one way to check learning. Answer in English. Label any assumptions.

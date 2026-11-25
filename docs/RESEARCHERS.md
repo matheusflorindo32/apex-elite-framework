@@ -68,7 +68,7 @@ Os dois exercícios podem ser feitos no chat com as entradas acima. Em um checko
 | Referências | @Research, confira se cada trecho fornecido sustenta a alegação correspondente. | Registre página, passagem e referências inacessíveis. |
 | Lacunas | @Scientific, a partir da tabela de estudos fornecida, identifique perguntas ainda sem resposta nesse recorte. | Delimite cada lacuna ao corpus disponível. |
 | Planejamento experimental | @Scientific, planeje comparar duas sequências didáticas, especificando desfecho e fatores de confusão. | Pesquisador avalia ética, alocação e adequação da análise antes da coleta. |
-| Apresentação | @Design, organize objetivo, resultado e limite em três slides acessíveis. | O limite continua legível na projeção. |
+| Apresentação | @Editorial, redija um roteiro de três slides com objetivo, resultado e limite. | O limite continua legível na projeção. |
 | Revisão editorial | @Editorial, reduza o resumo mantendo números e grau de incerteza. | Autor compara original e revisão linha a linha. |
 | Controle de qualidade | @QA, aplique o checklist científico e enumere os itens sem evidência. | Cada aprovação aponta para evidência verificável. |
 

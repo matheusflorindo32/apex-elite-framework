@@ -490,7 +490,7 @@ Transformar pedidos complexos em entregas funcionais, profissionais, seguras e v
 
 - `@EPO`: conduzir uma tarefa específica do intake à auditoria.
 - `@Commander`: coordenar projetos longos, fases, decisões, dependências, riscos e backlog.
-- `@Scientific`, `@Editorial`, `@Software`, `@Research`, `@Marketing`, `@Design`, `@Business`, `@Automation` e `@QA`: ativar explicitamente uma especialidade.
+- Use os aliases de `config/skills.json` do pacote carregado para selecionar as especialidades disponíveis. Se uma especialidade solicitada estiver ausente, informe esse limite.
 
 Interpretar esses aliases como comandos internos. Quando nenhum alias for informado, classificar o pedido e selecionar automaticamente a equipe mínima necessária.
 
@@ -939,7 +939,7 @@ Use no máximo três ciclos de correção. Pare antes se os gates passarem. Pare
 
 Imagine you have 30 minutes to teach students how to judge a source. Try planning the class with the project's delivery coordinator, called @EPO. Set aside 5–10 minutes to try it. All you need is a browser and a chat assistant that accepts text.
 
-1. **Get the instructions.** Open the [coordinator skill](#apex-file-skills~2Felite-project-orchestrator~2FSKILL.md). On GitHub, use **Copy raw file** or **Download raw file** in the file toolbar. The file is plain text. For all eleven skills together, download the [knowledge file](#apex-knowledge) the same way.
+1. **Use the coordinator instructions.** Read the [coordinator skill](#apex-file-skills~2Felite-project-orchestrator~2FSKILL.md).
 2. **Give your chat the context.** Start a new conversation. Attach the downloaded file or paste the coordinator instructions. Copy the following request into the same conversation.
 
    > @EPO Plan a 30-minute class for first-year students on checking a source. Give me one learning objective, three timed activities and one way to check learning. Answer in English. Label any assumptions.
@@ -983,7 +983,7 @@ Ask someone new to APEX to start at the README and try the three steps above wit
 
 Imagine que você dispõe de 30 minutos para ensinar uma turma a avaliar uma fonte. Experimente planejar a aula com o coordenador de entregas, chamado @EPO. Reserve de 5 a 10 minutos para tentar. Basta um navegador e um assistente de conversa que aceite texto.
 
-1. **Obtenha as instruções.** Abra a [skill do coordenador](#apex-file-skills~2Felite-project-orchestrator~2FSKILL.md). Na barra do arquivo no GitHub, use **Copy raw file** para copiar ou **Download raw file** para baixar. O arquivo contém texto simples. Para obter as onze skills juntas, baixe o [arquivo de conhecimento](#apex-knowledge) da mesma maneira.
+1. **Use as instruções do coordenador.** Leia a [skill do coordenador](#apex-file-skills~2Felite-project-orchestrator~2FSKILL.md).
 2. **Dê contexto ao assistente.** Abra uma conversa. Anexe o arquivo ou cole o texto da skill. Copie o pedido a seguir para a mesma conversa.
 
    > @EPO Planeje uma aula de 30 minutos para calouros sobre como conferir uma fonte. Quero um objetivo de aprendizagem, três atividades com duração e uma forma de verificar o aprendizado. Explicite as suposições.
@@ -1095,7 +1095,7 @@ Os dois exercícios podem ser feitos no chat com as entradas acima. Em um checko
 | Referências | @Research, confira se cada trecho fornecido sustenta a alegação correspondente. | Registre página, passagem e referências inacessíveis. |
 | Lacunas | @Scientific, a partir da tabela de estudos fornecida, identifique perguntas ainda sem resposta nesse recorte. | Delimite cada lacuna ao corpus disponível. |
 | Planejamento experimental | @Scientific, planeje comparar duas sequências didáticas, especificando desfecho e fatores de confusão. | Pesquisador avalia ética, alocação e adequação da análise antes da coleta. |
-| Apresentação | @Design, organize objetivo, resultado e limite em três slides acessíveis. | O limite continua legível na projeção. |
+| Apresentação | @Editorial, redija um roteiro de três slides com objetivo, resultado e limite. | O limite continua legível na projeção. |
 | Revisão editorial | @Editorial, reduza o resumo mantendo números e grau de incerteza. | Autor compara original e revisão linha a linha. |
 | Controle de qualidade | @QA, aplique o checklist científico e enumere os itens sem evidência. | Cada aprovação aponta para evidência verificável. |
 

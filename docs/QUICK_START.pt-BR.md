@@ -4,7 +4,7 @@
 
 Imagine que você dispõe de 30 minutos para ensinar uma turma a avaliar uma fonte. Experimente planejar a aula com o coordenador de entregas, chamado @EPO. Reserve de 5 a 10 minutos para tentar. Basta um navegador e um assistente de conversa que aceite texto.
 
-1. **Obtenha as instruções.** Abra a [skill do coordenador](../skills/elite-project-orchestrator/SKILL.md). Na barra do arquivo no GitHub, use **Copy raw file** para copiar ou **Download raw file** para baixar. O arquivo contém texto simples. Para obter as onze skills juntas, baixe o [arquivo de conhecimento](../bundles/APEX_CHATGPT_KNOWLEDGE.md) da mesma maneira.
+1. **Use as instruções do coordenador.** Leia a [skill do coordenador](../skills/elite-project-orchestrator/SKILL.md). <!-- github-only --> Na barra do arquivo no GitHub, use **Copy raw file** para copiar ou **Download raw file** para baixar. O arquivo contém texto simples. Para obter as onze skills juntas, baixe o [arquivo de conhecimento](../bundles/APEX_CHATGPT_KNOWLEDGE.md) da mesma maneira.<!-- /github-only -->
 2. **Dê contexto ao assistente.** Abra uma conversa. Anexe o arquivo ou cole o texto da skill. Copie o pedido a seguir para a mesma conversa.
 
    > @EPO Planeje uma aula de 30 minutos para calouros sobre como conferir uma fonte. Quero um objetivo de aprendizagem, três atividades com duração e uma forma de verificar o aprendizado. Explicite as suposições.

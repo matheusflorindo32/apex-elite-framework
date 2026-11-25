@@ -70,6 +70,10 @@ def test_detached_markdown(repo_root, tmp_path):
     assert len(anchors) == len(set(anchors))
     assert "## Arquivo: `docs/QUICK_START.md`" in content
     assert "## Arquivo: `docs/QUICK_START.pt-BR.md`" in content
+    for button in ("Copy raw file", "Download raw file"):
+        assert button not in content
+        for guide in ("QUICK_START.md", "QUICK_START.pt-BR.md"):
+            assert button in (repo_root / "docs" / guide).read_text(encoding="utf-8")
     targets = markdown_targets(knowledge)
     assert len(targets) > 20
     assert all(target.startswith("#") and target[1:] in anchors for target in targets)
@@ -118,7 +122,10 @@ def test_detached_archives(repo_root, tmp_path):
             relative = source_skills[slug].relative_to(repo_root)
             assert (extracted / relative).read_text(encoding="utf-8") == source_skills[slug].read_text(encoding="utf-8")
             assert (extracted / relative.parent / "agents/openai.yaml").is_file()
+        aliases = {skill["alias"] for skill in catalog["skills"]}
         for document in extracted.rglob("*.md"):
+            mentioned = set(re.findall(r"@[A-Za-z][\w-]*", document.read_text(encoding="utf-8")))
+            assert mentioned <= aliases, (document, mentioned - aliases)
             for target in markdown_targets(document):
                 local = target.split("#", 1)[0]
                 if local:
