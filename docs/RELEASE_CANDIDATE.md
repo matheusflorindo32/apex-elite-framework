@@ -32,3 +32,7 @@ Avalie os [testes](quality/TESTS.md), a [matriz](quality/READINESS.md), a [segur
 - **Prontidão para release**: os seis controles são versão/changelog, distribuições instaláveis, integridade, revisão de segurança, regressão multiplataforma e aprovação do mantenedor. A aprovação é obrigatória e permanece aberta.
 
 As porcentagens contam verificações discretas. A revisão executiva deve considerar separadamente a qualidade de cada dimensão e os limites descritos na rubrica.
+
+## Revisão de adoção
+
+A [segunda fase](quality/PHASE_2.md) acompanha a instalação, recuperação após erro e o uso de arquivos fora do clone. A PR mantém os resultados dos jobs associados ao último SHA. O teste guiado com uma pessoa iniciante e a autorização humana de publicação permanecem abertos.

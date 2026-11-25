@@ -1,4 +1,4 @@
-# Candidate test record
+# Candidate test record · fase 1
 
 The baseline suite passed 25 tests. In a clean environment outside the clone the baseline wheel returned exit 2 for `aef skills list`. The candidate embeds config, skills, templates, checklists, schemas and workflows in the wheel. Installed validation checks runtime resources. Repository validation additionally checks source documentation and examples.
 
@@ -24,3 +24,7 @@ See the candidate PR for the hosted matrix. Graphical clients, screen readers, n
 Hosted run 45635476265 passed on Linux and identified different Markdown section ordering on Windows. Paths are now sorted by their case-sensitive POSIX representation before rendering. The GitHub PR checks show the rerun for the corrected candidate.
 
 All 30 distinct external Markdown link destinations responded to an HTTP GET after two benchmark citations were switched to their pinned raw README URLs. This check verifies reachability at review time. The SVG banner was rasterized at 640 pixels and visually checked for legibility and clipping. A full browser and assistive-technology review remains open.
+
+## Segunda fase
+
+As novas verificações cobrem o consumo de arquivos isolados, os erros da CLI e a instalação em caminho com espaços e acentos. Consulte o [relatório de reprodução](PHASE_2.md) e os checks da PR para o resultado da revisão atual.
