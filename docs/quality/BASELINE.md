@@ -1,6 +1,6 @@
 # CP00 · inventário de partida
 
-Em 25/11/2026, a referência da main era `35de85a18ddd8d21a1899fcf0a4e11f8b9c9cd83`. Havia 97 arquivos rastreados, sete commits na main, oito branches remotas e nenhuma tag ou release. A branch desta iniciativa estava disponível e foi criada a partir desse commit. O conector GitHub confirmou visibilidade pública. A licença e a autoria constam em LICENSE e pyproject.toml.
+Em 25/11/2026, a referência da main era `35de85a18ddd8d21a1899fcf0a4e11f8b9c9cd83`. Havia 85 arquivos rastreados, sete commits na main, oito branches remotas e nenhuma tag ou release. A branch desta iniciativa estava disponível e foi criada a partir desse commit. O conector GitHub confirmou visibilidade pública. A licença e a autoria constam em LICENSE e pyproject.toml.
 
 ## Como reproduzir o inventário
 

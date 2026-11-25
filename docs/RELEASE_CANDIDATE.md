@@ -24,3 +24,11 @@ Retome o ambiente anterior ou abra um clone separado no commit `35de85a18ddd8d21
 ## Decisão do mantenedor
 
 Avalie os [testes](quality/TESTS.md), a [matriz](quality/READINESS.md), a [segurança](quality/SECURITY_AUDIT.md) e a [auditoria](quality/INDEPENDENT_AUDIT.md). A divulgação depende de revisão de links e da experiência de primeiro uso. Publicação, assinatura e tag definitiva dependem de autorização expressa.
+
+## Indicadores para a decisão
+
+- **Implementação dos entregáveis obrigatórios**: 19/19 (100%). Inventário: dois READMEs, início rápido, instalação, catálogo, compatibilidade, guias por perfil, FAQ nos guias rápidos, pacotes, exemplos, arquitetura, benchmark, segurança, testes, matriz, changelog, notas da candidata, auditoria e PR. Este indicador conta presença e não mede eficácia.
+- **Prontidão para divulgação**: quatro de cinco verificações (80%). Kit redigido, guias bilíngues disponíveis, links externos do Markdown acessíveis e downloads consistentes. Falta observar uma pessoa iniciante usando o guia.
+- **Prontidão para release**: os seis controles são versão/changelog, distribuições instaláveis, integridade, revisão de segurança, regressão multiplataforma e aprovação do mantenedor. A aprovação é obrigatória e permanece aberta.
+
+As porcentagens contam verificações discretas. A revisão executiva deve considerar separadamente a qualidade de cada dimensão e os limites descritos na rubrica.

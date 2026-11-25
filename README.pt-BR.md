@@ -10,6 +10,8 @@ Transforme um pedido em um plano com responsáveis, evidências necessárias e c
 
 Esta branch prepara uma candidata a lançamento para revisão humana. Em uma conversa, as respostas dependem do modelo e do contexto fornecido. A CLI gera planos e verifica os arquivos do framework. Cabe às pessoas executar o trabalho planejado e conferir os resultados.
 
+[Compatibilidade por plataforma](docs/COMPATIBILITY.md) · [Downloads e checksums](docs/DISTRIBUTION.md) · [Candidata e rollback](docs/RELEASE_CANDIDATE.md) · [Benchmark internacional](docs/quality/INTERNATIONAL_BENCHMARK.md)
+
 ## Escolha seu ponto de partida
 
 | Objetivo | Recurso |

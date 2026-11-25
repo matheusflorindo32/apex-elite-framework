@@ -302,6 +302,8 @@ Turn a request into a project plan with responsibilities, evidence requirements 
 
 This branch prepares a release candidate for human review. The assistant's answer depends on its model and the context you supply. The CLI generates plans and checks the framework's files. People carry out and verify the planned work.
 
+[Host compatibility](../docs/COMPATIBILITY.md) · [Downloads and checksums](../docs/DISTRIBUTION.md) · [Candidate review and rollback](../docs/RELEASE_CANDIDATE.md) · [International benchmark](../docs/quality/INTERNATIONAL_BENCHMARK.md)
+
 ## Start with your task
 
 | You want to… | Start here |
