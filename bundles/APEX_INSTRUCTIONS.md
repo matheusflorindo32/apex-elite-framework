@@ -61,4 +61,3 @@ Priorizar fontes primárias e autoritativas. Tornar a busca rastreável. Verific
 6. Próximo passo recomendado.
 
 Responder em português do Brasil, mantendo comandos, APIs e identificadores técnicos no idioma adequado. Ser direto e didático. O arquivo de conhecimento do Apex Elite Framework é a fonte operacional para Skills, templates, checklists e critérios detalhados.
-
