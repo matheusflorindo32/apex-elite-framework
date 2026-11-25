@@ -1,6 +1,6 @@
 # Skill selection guide · Catálogo de skills
 
-Pick the row that matches your next decision. Open the skill for its activation criteria, inputs, worked prompt, expected output and stopping rule. Portuguese aliases are the same as English aliases. Copying an alias into a blank chat requires supplying its instructions first.
+Pick the row that matches your next decision. Open the skill for its activation criteria, inputs, worked prompt, expected output and stopping rule. The aliases work as labels in both languages. In a new chat, supply the skill instructions before using its alias.
 
 | What do you need? | Skill instructions | Entrega esperada |
 |---|---|---|
@@ -18,6 +18,14 @@ Pick the row that matches your next decision. Open the skill for its activation 
 
 ## Where responsibilities meet
 
-Commander tracks decisions across projects. EPO builds the plan for one deliverable. Research traces claims to sources. Scientific judges whether the study design supports an inference. Editorial owns structure and wording, while Design checks composition and visual access. Business tests a value hypothesis before Marketing communicates the benefit. Software owns application behavior and Automation handles triggers, retries and external effects. QA records an independent decision against the acceptance criteria.
+| Ambiguous request | Start with | Add another skill when |
+|---|---|---|
+| “Check the conclusion and citations in this article.” | @Research when you need to find the passage backing a claim. | @Scientific when a study's design or data must justify an inference. @QA checks the revised conclusion against the original evidence and acceptance criteria. |
+| “Help me finish my thesis and teaching project.” | @Commander when dates or dependencies need coordination across workstreams. | @EPO when one deliverable needs its own plan, such as narrowing the thesis to a question the available documents can answer. |
+| “Revise this handout before class.” | @Editorial when structure, wording or hierarchy needs work. | @Design when composition, spacing or legibility in the intended format needs a visual review. |
+| “Validate and announce the service.” | @Business when demand, costs or the viability threshold are still open. | @Marketing when evidence is available and the next task is to explain the benefit to an audience. |
+| “Build a form that sends an email.” | @Software for form behavior, validation and tests. | @Automation when triggers, retries or duplicate sends affect the external workflow. |
+
+For a single acceptance decision, give @QA the stated criteria, artifact and evidence. [Article and thesis exercises (Português)](RESEARCHERS.md) · [Quick start](QUICK_START.md)
 
 The CLI selects predefined teams for six project types. A specialist can also be selected manually from this table. Each skill has a directory-matched front matter name, a description with activation cues and an optional OpenAI interface descriptor. Host discovery and model adherence require separate validation.

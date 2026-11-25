@@ -2,7 +2,7 @@
 
 [English](QUICK_START.md) · [Visão geral](../README.pt-BR.md)
 
-Imagine que você dispõe de 30 minutos para ensinar uma turma a avaliar uma fonte. Experimente planejar a aula com o coordenador de entregas, chamado @EPO. Basta um navegador e um assistente de conversa que aceite texto.
+Imagine que você dispõe de 30 minutos para ensinar uma turma a avaliar uma fonte. Experimente planejar a aula com o coordenador de entregas, chamado @EPO. Reserve de 5 a 10 minutos para tentar. Basta um navegador e um assistente de conversa que aceite texto.
 
 1. **Obtenha as instruções.** Abra a [skill do coordenador](../skills/elite-project-orchestrator/SKILL.md). Na barra do arquivo no GitHub, use **Copy raw file** para copiar ou **Download raw file** para baixar. O arquivo contém texto simples. Para obter as onze skills juntas, baixe o [arquivo de conhecimento](../bundles/APEX_CHATGPT_KNOWLEDGE.md) da mesma maneira.
 2. **Dê contexto ao assistente.** Abra uma conversa. Anexe o arquivo ou cole o texto da skill. Copie o pedido a seguir para a mesma conversa.
@@ -17,10 +17,14 @@ Imagine que você dispõe de 30 minutos para ensinar uma turma a avaliar uma fon
 
 | Perfil | O que experimentar | O que conferir |
 | --- | --- | --- |
-| Estudante | Peça ao @EPO para dividir um projeto de TCC em pergunta, marcos e revisão com o orientador. | Cada marco produz algo que pode ser apresentado. |
-| Pesquisador | Peça ao @Scientific para revisar um resumo público e identificar lacunas no método. | Vincule cada crítica ao texto fornecido. Registre detalhes ausentes como desconhecidos. |
-| Desenvolvedor | Gere um plano de equipe pelo [guia de instalação](INSTALLATION.md). | Execute os testes do projeto e revise o plano antes da implementação. |
-| Professor | Peça ao @Editorial para transformar o plano de aula em uma atividade para a turma. | Compare o exercício com o objetivo. |
+| Estudante | Cole o [pedido do TCC fictício](RESEARCHERS.md#exercício-2--delimitar-um-tcc) com as instruções de @EPO e @Research. | Cada marco produz algo que pode ser apresentado. |
+| Pesquisador | Cole o [resumo fictício do artigo](RESEARCHERS.md#exercício-1--revisar-a-conclusão-de-um-artigo) com as instruções de @Scientific. | Vincule cada crítica ao texto fornecido. Registre detalhes ausentes como desconhecidos. |
+| Desenvolvedor | Siga a [instalação](INSTALLATION.md) e execute `uv run aef plan --type software --request "Planejar um diário de leitura acessível"`. | Execute os testes do projeto e revise o plano antes da implementação. |
+| Professor | Cole as [instruções de @Editorial](../skills/editorial/SKILL.md) e o plano de aula acima. Peça uma folha de atividade. | Compare o exercício com o objetivo. |
+
+## Observe o primeiro uso
+
+Peça a alguém que ainda não conhece o APEX para começar pelo README e tentar os três passos acima sem orientação. Reserve de 5 a 10 minutos e comece a contar quando a pessoa abrir o README. Considere que houve sucesso quando ela localizar a skill, enviar o pedido e verificar que as atividades somam 30 minutos e que a última mede o objetivo. Registre tempo decorrido, etapa alcançada, ponto de dúvida, ajuda solicitada e resultado. Se o tempo acabar, registre o ponto de parada. A faixa é um orçamento de observação. O tempo real ainda depende de testes com iniciantes.
 
 ## Dúvidas frequentes
 
@@ -30,4 +34,4 @@ Imagine que você dispõe de 30 minutos para ensinar uma turma a avaliar uma fon
 
 **O APEX recupera referências científicas?** O APEX organiza a revisão. Forneça fontes verificadas e confira cada citação. [Guia de pesquisa](RESEARCHERS.md)
 
-**A resposta será sempre igual?** O texto produzido pelo assistente varia. Para planejamento local reproduzível com catálogo e entrada fixos, use a CLI. O tempo até o primeiro uso bem-sucedido ainda precisa ser observado com iniciantes.
+**A resposta será sempre igual?** O texto produzido pelo assistente varia. Para planejamento local reproduzível com catálogo e entrada fixos, use a CLI.

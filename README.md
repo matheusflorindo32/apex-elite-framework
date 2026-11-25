@@ -16,9 +16,11 @@ This branch prepares a release candidate for human review. The assistant's answe
 
 | You want to… | Start here |
 | --- | --- |
-| Try a first task in ChatGPT without installing software | [Three-step guide with a sample answer](docs/QUICK_START.md) |
-| Critique a paper or prepare a research project | [Scientific review example](examples/scientific-review.md) · [Scientific checklist](checklists/scientific-qa.md) |
-| Scope an app and review the plan | [Software example](examples/software-project.md) · [Developer installation](docs/INSTALLATION.md) |
+| Try APEX in a chat | [Three-step guide with a sample answer](docs/QUICK_START.md) |
+| Student · narrow a thesis topic | [Open the synthetic scenario and copy the prompt (Português)](docs/RESEARCHERS.md#exercício-2--delimitar-um-tcc) |
+| Researcher · review a conclusion | [Try reviewing a synthetic abstract (Português)](docs/RESEARCHERS.md#exercício-1--revisar-a-conclusão-de-um-artigo) |
+| Teacher · prepare a class | [Copy the prompt for a 30-minute lesson](docs/QUICK_START.md) |
+| Developer · scope an app | [Install the CLI](docs/INSTALLATION.md) and generate a plan using the [software example](examples/software-project.md) |
 | Plan an automation with human approval | [Automation example](examples/automation.md) |
 | Prepare slides, layouts or illustrations | [Visual prompt kit](docs/VISUAL_PROMPT_KIT.md) |
 

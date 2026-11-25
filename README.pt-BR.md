@@ -16,9 +16,11 @@ Esta branch prepara uma candidata a lançamento para revisão humana. Em uma con
 
 | Objetivo | Recurso |
 | --- | --- |
-| Fazer o primeiro teste no ChatGPT sem instalar programas | [Três passos com exemplo de resposta](docs/QUICK_START.pt-BR.md) |
-| Revisar um artigo ou preparar uma pesquisa | [Exemplo científico](examples/scientific-review.md) · [Checklist de revisão](checklists/scientific-qa.md) |
-| Planejar um aplicativo | [Exemplo de software](examples/software-project.md) · [Instalação para desenvolvimento](docs/INSTALLATION.md) |
+| Experimentar o APEX em uma conversa | [Três passos com exemplo de resposta](docs/QUICK_START.pt-BR.md) |
+| Estudante · delimitar um TCC | [Abra o cenário fictício e copie o pedido](docs/RESEARCHERS.md#exercício-2--delimitar-um-tcc) |
+| Pesquisador · revisar uma conclusão | [Teste a revisão de um resumo fictício](docs/RESEARCHERS.md#exercício-1--revisar-a-conclusão-de-um-artigo) |
+| Professor · preparar uma aula | [Copie o pedido de uma aula de 30 minutos](docs/QUICK_START.pt-BR.md) |
+| Desenvolvedor · planejar um aplicativo | [Instale a CLI](docs/INSTALLATION.md) e gere um plano seguindo o [exemplo de software](examples/software-project.md) |
 | Organizar uma automação com aprovação humana | [Exemplo de automação](examples/automation.md) |
 | Criar slides, diagramas ou ilustrações | [Kit prático de referências visuais](docs/VISUAL_PROMPT_KIT.md) |
 
