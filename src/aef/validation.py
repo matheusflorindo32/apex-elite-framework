@@ -103,7 +103,7 @@ def _validate_skills(root: Path, report: ValidationReport) -> None:
 
         try:
             document = parse_skill(skill_path)
-        except (OSError, FrontMatterError) as exc:
+        except (OSError, ValueError) as exc:
             report.add(Issue("skills.frontmatter", str(exc), Severity.HIGH, skill_path.relative_to(root).as_posix()))
             continue
 
@@ -197,8 +197,10 @@ def _validate_schema(root: Path, report: ValidationReport) -> None:
     report.count("json_schemas")
     if schema.get("$schema") != "https://json-schema.org/draft/2020-12/schema":
         report.add(Issue("schema.draft", "schema deve declarar JSON Schema 2020-12", Severity.HIGH, path.relative_to(root).as_posix()))
-    required = set(schema.get("required", []))
-    if not {"project_type", "roles", "acceptance_criteria"} <= required:
+    required = schema.get("required")
+    if not isinstance(required, list) or not all(isinstance(field, str) for field in required):
+        report.add(Issue("schema.required", "required deve ser uma lista de textos", Severity.HIGH, path.relative_to(root).as_posix()))
+    elif not {"project_type", "roles", "acceptance_criteria"} <= set(required):
         report.add(Issue("schema.required", "campos essenciais ausentes em required", Severity.HIGH, path.relative_to(root).as_posix()))
 
 

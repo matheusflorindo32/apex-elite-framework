@@ -12,7 +12,7 @@ from .catalog import load_project_types, load_skills, resource_path
 
 def resolve_project_type(root: Path, requested_type: str | None, request: str = "") -> str:
     project_types = load_project_types(root)
-    if requested_type:
+    if requested_type is not None:
         normalized = requested_type.casefold().strip()
         if normalized not in project_types:
             options = ", ".join(sorted(project_types))
@@ -25,7 +25,11 @@ def resolve_project_type(root: Path, requested_type: str | None, request: str = 
         keywords = {str(item).casefold() for item in definition.get("keywords", [])}
         scored.append((len(terms & keywords), name))
     best_score, best_name = max(scored, default=(0, "general"))
-    return best_name if best_score else "general"
+    if best_score:
+        return best_name
+    if "general" not in project_types:
+        raise ValueError("config/project-types.json: tipo 'general' ausente")
+    return "general"
 
 
 def build_plan(root: Path, project_type: str, request: str = "") -> dict[str, Any]:

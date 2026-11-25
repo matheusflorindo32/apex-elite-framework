@@ -18,6 +18,7 @@ from .planning import (
     resolve_project_type,
     write_output,
 )
+from .schema import validate_team_plan
 from .validation import report_to_markdown, validate_repository
 
 
@@ -58,7 +59,12 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def _root(args: argparse.Namespace) -> Path:
-    return args.root.resolve() if args.root else repository_root()
+    if args.root is None:
+        return repository_root()
+    root = args.root.resolve()
+    if not root.is_dir():
+        raise ValueError(f"raiz inválida: {root}")
+    return root
 
 
 def main(argv: Sequence[str] | None = None) -> int:
@@ -94,6 +100,9 @@ def main(argv: Sequence[str] | None = None) -> int:
         if args.command == "plan":
             project_type = resolve_project_type(root, args.project_type, args.request)
             plan = build_plan(root, project_type, args.request)
+            errors = validate_team_plan(plan)
+            if errors:
+                raise ValueError("plano inválido: " + ", ".join(errors))
             content: str | dict[str, object] = plan if args.format == "json" else plan_to_markdown(plan)
             rendered = write_output(content, args.output)
             if args.output:
