@@ -5,29 +5,53 @@ on:
     branches: [main]
   pull_request:
   workflow_dispatch:
+    inputs:
+      macos_runner:
+        description: macOS runner for this validation
+        type: choice
+        default: macos-15-intel
+        options:
+          - macos-15-intel
+          - macos-latest
+
+env:
+  PYTHONUTF8: "1"
 
 permissions:
   contents: read
 
 jobs:
   validate:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     timeout-minutes: 10
     strategy:
+      fail-fast: false
       matrix:
-        python-version: ["3.11", "3.13"]
+        os:
+          - ubuntu-latest
+          - windows-latest
+          - ${{ inputs.macos_runner || 'macos-15-intel' }}
+        python-version: ["3.11", "3.12", "3.13"]
     steps:
-      - uses: actions/checkout@v4
-      - uses: astral-sh/setup-uv@v6
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@d0cc045d04ccac9d8b7881df0226f9e82c39688e # v6.8.0
         with:
           version: "0.11.19"
           enable-cache: true
       - name: Set up Python
         run: uv python install ${{ matrix.python-version }}
       - name: Install
-        run: uv sync --locked --dev
+        run: uv sync --locked --dev --python ${{ matrix.python-version }}
       - name: Validate framework
         run: uv run aef validate
       - name: Test
         run: uv run pytest
 
+      - name: Verify published bundles
+        run: uv run python scripts/build_bundles.py --check
+      - name: Build and exercise both distributions
+        run: |
+          uv build
+          uv run python scripts/check_install.py dist

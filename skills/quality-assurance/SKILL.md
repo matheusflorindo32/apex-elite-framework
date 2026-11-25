@@ -27,3 +27,13 @@ Não aprovar enquanto houver achado crítico ou alto aberto. Aceitar achados mé
 - links, QR Codes e integrações;
 - consistência, regressões e operação.
 
+
+## Aplicação prática
+
+- **Entrada.** Requisitos, artefato e evidências do responsável pela entrega.
+- **Entrega.** Matriz requisito, verificação, evidência, severidade e decisão.
+- **Aceite e parada.** Registre verificações bloqueadas e solicite revisão independente quando o próprio autor realizar o QA.
+
+Pedido de exemplo
+
+> Confira se um plano de aula contém objetivo, duração e exercício avaliável.

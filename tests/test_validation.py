@@ -3,6 +3,9 @@ from __future__ import annotations
 import json
 import shutil
 
+import pytest
+
+from aef.cli import main
 from aef.models import Severity
 from aef.validation import validate_repository
 
@@ -34,4 +37,17 @@ def test_broken_internal_link_is_detected(repo_root, tmp_path):
     report = validate_repository(copy)
     assert any(issue.code == "links.broken" and issue.path == "docs/BROKEN.md" for issue in report.issues)
     assert not report.passed
+
+
+@pytest.mark.parametrize("required", [None, ["project_type", {}], "roles"])
+def test_invalid_schema_fields_produce_structured_findings(repo_root, tmp_path, capsys, required):
+    schemas = tmp_path / "schemas"
+    schemas.mkdir()
+    schema = json.loads((repo_root / "schemas/team-plan.schema.json").read_text(encoding="utf-8"))
+    schema["required"] = required
+    (schemas / "team-plan.schema.json").write_text(json.dumps(schema), encoding="utf-8")
+    result = main(["--root", str(tmp_path), "validate", "--format", "json"])
+    payload = json.loads(capsys.readouterr().out)
+    assert result == 1
+    assert any(issue["code"] == "schema.required" for issue in payload["issues"])
 

@@ -17,3 +17,13 @@ Conduz pesquisa documental, competitiva, técnica ou acadêmica com rastreabilid
 - lacunas;
 - nível de confiança;
 - referências.
+
+## Aplicação prática
+
+- **Entrada.** Pergunta, recorte temporal e documentos públicos ou autorizados.
+- **Entrega.** Tabela com fonte, data, trecho, interpretação e lacunas.
+- **Aceite e parada.** Registre o material efetivamente consultado. Se a fonte estiver indisponível, mantenha a afirmação pendente.
+
+Pedido de exemplo
+
+> Compare os requisitos de dois editais públicos a partir dos trechos fornecidos.

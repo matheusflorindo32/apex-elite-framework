@@ -23,3 +23,7 @@ Use Conventional Commits (`feat:`, `fix:`, `docs:`, `test:`, `chore:`). Uma Pull
 
 Siga [docs/CREATING_SKILLS.md](docs/CREATING_SKILLS.md). Toda Skill precisa de front matter mínimo, diretório com o mesmo nome, registro único em `config/skills.json` e `agents/openai.yaml` coerente.
 
+
+## Suporte e convivência
+
+Use Issues para dúvidas reproduzíveis e problemas com exemplos fictícios. Informe versão e sistema. Relatos de segurança seguem SECURITY.md. O atendimento é comunitário, conforme disponibilidade. Discuta ideias e evidências com respeito, preserve crédito e autoria, e sinalize conflitos de interesse. Use revisão humana para conclusões científicas. Envie somente materiais cuja redistribuição tenha sido autorizada.

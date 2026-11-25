@@ -7,12 +7,12 @@ import re
 from pathlib import Path
 from typing import Any
 
-from .catalog import Skill, load_project_types, load_skills
+from .catalog import load_project_types, load_skills, resource_path
 
 
 def resolve_project_type(root: Path, requested_type: str | None, request: str = "") -> str:
     project_types = load_project_types(root)
-    if requested_type:
+    if requested_type is not None:
         normalized = requested_type.casefold().strip()
         if normalized not in project_types:
             options = ", ".join(sorted(project_types))
@@ -25,7 +25,11 @@ def resolve_project_type(root: Path, requested_type: str | None, request: str = 
         keywords = {str(item).casefold() for item in definition.get("keywords", [])}
         scored.append((len(terms & keywords), name))
     best_score, best_name = max(scored, default=(0, "general"))
-    return best_name if best_score else "general"
+    if best_score:
+        return best_name
+    if "general" not in project_types:
+        raise ValueError("config/project-types.json: tipo 'general' ausente")
+    return "general"
 
 
 def build_plan(root: Path, project_type: str, request: str = "") -> dict[str, Any]:
@@ -105,7 +109,7 @@ def plan_to_markdown(plan: dict[str, Any]) -> str:
 
 def render_brief(root: Path, project_type: str) -> str:
     definition = load_project_types(root)[project_type]
-    template = root / str(definition.get("template", "templates/project-brief.md"))
+    template = resource_path(root, "templates", str(definition.get("template", "templates/project-brief.md")))
     content = template.read_text(encoding="utf-8")
     return f"<!-- Tipo de projeto: {project_type} -->\n\n{content.rstrip()}\n"
 
@@ -114,7 +118,7 @@ def render_checklists(root: Path, project_type: str) -> str:
     definition = load_project_types(root)[project_type]
     sections = []
     for relative in definition.get("checklists", ["checklists/final-qa.md"]):
-        path = root / str(relative)
+        path = resource_path(root, "checklists", str(relative))
         sections.append(path.read_text(encoding="utf-8").strip())
     return "\n\n---\n\n".join(sections) + "\n"
 

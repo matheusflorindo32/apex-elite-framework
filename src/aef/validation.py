@@ -6,7 +6,7 @@ import json
 import re
 from pathlib import Path
 
-from .catalog import load_json, load_project_types, load_skills
+from .catalog import PACKAGED_ROOT, load_json, load_project_types, load_skills, resource_path
 from .frontmatter import FrontMatterError, parse_skill
 from .models import Issue, Severity, ValidationReport
 from .planning import build_plan
@@ -47,12 +47,14 @@ SKILL_NAME = re.compile(r"^[a-z0-9-]{1,63}$")
 
 def validate_repository(root: Path) -> ValidationReport:
     report = ValidationReport()
-    _validate_required_files(root, report)
+    if root != PACKAGED_ROOT:
+        _validate_required_files(root, report)
     _validate_skills(root, report)
     _validate_project_types(root, report)
     _validate_schema(root, report)
-    _validate_examples(root, report)
-    _validate_links(root, report)
+    if root != PACKAGED_ROOT:
+        _validate_examples(root, report)
+        _validate_links(root, report)
     return report
 
 
@@ -85,7 +87,11 @@ def _validate_skills(root: Path, report: ValidationReport) -> None:
             continue
         directory = str(entry.get("directory", ""))
         alias = str(entry.get("alias", ""))
-        skill_path = root / "skills" / directory / "SKILL.md"
+        try:
+            skill_path = resource_path(root, "skills", f"skills/{directory}/SKILL.md")
+        except ValueError as exc:
+            report.add(Issue("skills.path", str(exc), Severity.HIGH, "config/skills.json"))
+            continue
         if directory in directories:
             report.add(Issue("skills.directory.duplicate", f"diretório duplicado: {directory}", Severity.HIGH, "config/skills.json"))
         directories.add(directory)
@@ -97,7 +103,7 @@ def _validate_skills(root: Path, report: ValidationReport) -> None:
 
         try:
             document = parse_skill(skill_path)
-        except (OSError, FrontMatterError) as exc:
+        except (OSError, ValueError) as exc:
             report.add(Issue("skills.frontmatter", str(exc), Severity.HIGH, skill_path.relative_to(root).as_posix()))
             continue
 
@@ -153,6 +159,15 @@ def _validate_project_types(root: Path, report: ValidationReport) -> None:
         report.add(Issue("project_types.general", "tipo 'general' é obrigatório", Severity.HIGH, "config/project-types.json"))
     for project_type, definition in project_types.items():
         report.count("project_types")
+        try:
+            paths = [("templates", definition["template"])]
+            paths.extend(("checklists", relative) for relative in definition["checklists"])
+            for directory, relative in paths:
+                if not resource_path(root, directory, relative).is_file():
+                    raise ValueError(f"recurso ausente: {relative}")
+        except (KeyError, TypeError, ValueError) as exc:
+            report.add(Issue("project_types.resource", str(exc), Severity.HIGH, "config/project-types.json"))
+            continue
         roles = definition.get("roles", [])
         if not roles:
             report.add(Issue("project_types.roles", f"tipo sem papéis: {project_type}", Severity.HIGH, "config/project-types.json"))
@@ -182,8 +197,10 @@ def _validate_schema(root: Path, report: ValidationReport) -> None:
     report.count("json_schemas")
     if schema.get("$schema") != "https://json-schema.org/draft/2020-12/schema":
         report.add(Issue("schema.draft", "schema deve declarar JSON Schema 2020-12", Severity.HIGH, path.relative_to(root).as_posix()))
-    required = set(schema.get("required", []))
-    if not {"project_type", "roles", "acceptance_criteria"} <= required:
+    required = schema.get("required")
+    if not isinstance(required, list) or not all(isinstance(field, str) for field in required):
+        report.add(Issue("schema.required", "required deve ser uma lista de textos", Severity.HIGH, path.relative_to(root).as_posix()))
+    elif not {"project_type", "roles", "acceptance_criteria"} <= set(required):
         report.add(Issue("schema.required", "campos essenciais ausentes em required", Severity.HIGH, path.relative_to(root).as_posix()))
 
 
@@ -194,6 +211,11 @@ def _validate_examples(root: Path, report: ValidationReport) -> None:
         report.add(Issue("examples.missing", f"exemplo obrigatório ausente: {missing}.md", Severity.HIGH, "examples"))
     for path in (root / "examples").glob("*.md"):
         content = path.read_text(encoding="utf-8")
+        if path.name == "WALKTHROUGHS.md":
+            for section in re.split(r"^## ", content, flags=re.MULTILINE)[1:]:
+                if not all(token in section for token in ("aef plan --type ", "--format json", "Observed team")):
+                    report.add(Issue("examples.walkthrough", "cenário sem comando ou equipe observada", Severity.MEDIUM, path.relative_to(root).as_posix()))
+            continue
         for heading in ("## Pedido", "## Equipe esperada", "## Critérios de aceite"):
             if heading not in content:
                 report.add(Issue("examples.incomplete", f"seção ausente: {heading}", Severity.MEDIUM, path.relative_to(root).as_posix()))

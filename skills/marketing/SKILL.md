@@ -25,3 +25,13 @@ Constrói posicionamento, proposta de valor, mensagem, copy e jornada de convers
 - adequação ao público;
 - CTA;
 - ausência de exageros e jargão vazio.
+
+## Aplicação prática
+
+- **Entrada.** Público, canal, ação desejada e evidência do benefício.
+- **Entrega.** Mensagem com chamada para ação e registro das afirmações verificáveis.
+- **Aceite e parada.** Vincule cada promessa à sua evidência. Retire alegações comerciais sem suporte antes de entregar a minuta.
+
+Pedido de exemplo
+
+> Escreva um convite para experimentar um catálogo aberto de planos de aula.

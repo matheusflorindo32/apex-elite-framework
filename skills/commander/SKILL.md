@@ -41,3 +41,13 @@ Coordenar projetos longos ou múltiplas frentes, manter prioridades, decisões, 
 ## Regra
 
 O Commander não substitui skills técnicas. Ele coordena e delega.
+
+## Aplicação prática
+
+- **Entrada.** Objetivos, prazos e decisões de cada frente.
+- **Entrega.** Mapa de dependências com responsável, prioridade e próxima decisão.
+- **Aceite e parada.** Cada prioridade atende a um objetivo e tem responsável. Se houver conflito de autoridade, peça decisão ao responsável.
+
+Pedido de exemplo
+
+> Coordene a revisão de um curso e a entrega do material em duas semanas.

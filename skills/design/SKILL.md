@@ -17,3 +17,13 @@ Coordena direção de arte, identidade, fotografia, ilustração, 3D, UX visual 
 - consistência;
 - qualidade de exportação;
 - adequação ao suporte final.
+
+## Aplicação prática
+
+- **Entrada.** Brief, suporte, dimensões e ativos com licença de uso.
+- **Entrega.** Direção visual, hierarquia e lista de verificações da peça.
+- **Aceite e parada.** Confira legibilidade no tamanho final. Sem acesso à imagem, limite a entrega à especificação.
+
+Pedido de exemplo
+
+> Proponha a hierarquia visual para um cartaz de aula que também será lido no celular.

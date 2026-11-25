@@ -31,3 +31,13 @@ Encerrar quando todos os critérios obrigatórios forem atendidos e não houver 
 - Não expor segredos nem registrar dados sensíveis.
 - Distinguir fatos verificados, inferências e recomendações.
 
+
+## Aplicação prática
+
+- **Entrada.** Pedido, público e restrições da entrega.
+- **Entrega.** Team Plan com papéis, critérios de aceite e evidência esperada.
+- **Aceite e parada.** Associe cada risco a uma verificação. Bloqueie decisões irreversíveis sem autorização.
+
+Pedido de exemplo
+
+> Planeje uma aula de 45 minutos para iniciantes com exercício final.

@@ -48,3 +48,22 @@ def test_schema_is_valid_json(repo_root):
     assert schema["$schema"].endswith("2020-12/schema")
     assert schema["additionalProperties"] is False
 
+
+
+def test_schema_rejects_missing_phases_and_role_skill(repo_root):
+    plan = build_plan(repo_root, "software")
+    del plan["phases"]
+    del plan["roles"][0]["skill"]
+    errors = validate_team_plan(plan)
+    assert any("phases" in error for error in errors)
+    assert any("roles[0]" in error for error in errors)
+
+
+def test_template_must_belong_to_templates(repo_root, tmp_path):
+    config = tmp_path / "config"
+    config.mkdir()
+    definitions = json.loads((repo_root / "config/project-types.json").read_text(encoding="utf-8"))
+    definitions["project_types"]["software"]["template"] = "config/project-types.json"
+    (config / "project-types.json").write_text(json.dumps(definitions), encoding="utf-8")
+    with pytest.raises(ValueError, match="fora de templates"):
+        render_brief(tmp_path, "software")

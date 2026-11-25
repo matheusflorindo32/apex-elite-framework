@@ -1,0 +1,7 @@
+# Cross-review and adjudication
+
+1. **Baseline review.** Engineering reproduced a high-severity installation defect outside the source directory. Security reviewed local path handling, development advisories and CI. See [baseline](BASELINE.md) and [security review](SECURITY_AUDIT.md).
+2. **Independent regression review.** The reviewer reported broken links in the combined export (34) and missing expected headings in the walkthrough collection (three). The former affected navigation; the latter reflected a mismatch between the index and the schema used for single examples. Severity was high for broken links and medium for example structure. The reviewer separately checked PyPI advisory data after the pytest update.
+3. **Maintainer adjudication.** Export now resolves embedded relative links against each source location. The example validator checks commands and observed teams in the collection; existing single examples keep their required headings. Final repository validation and distribution tests are recorded in [TESTS.md](TESTS.md). Two dangling release-report links found during this pass were resolved by adding the reports. The final adjudication was performed by the coordinating agent; independent review covered the first two cycles.
+
+The scope excludes native invocation in hosted assistants, measured novice usability, and independent approval of public release. The [rubric](READINESS.md) keeps unverified criteria open.

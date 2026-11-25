@@ -1,90 +1,72 @@
 # Apex Elite Framework
 
-Framework local, modular e sem dependência de API para planejar, revisar e auditar projetos complexos com Skills especializadas e critérios verificáveis.
+[Português (Brasil)](README.pt-BR.md) · [Quick start](docs/QUICK_START.md) · [Installation](docs/INSTALLATION.md) · [Skill directory](#skill-directory) · [Architecture](#architecture) · [Contribute](#contribute)
 
-## O que está pronto
+![Apex Elite Framework, three lines rising to a summit](docs/assets/apex-banner.svg)
 
-- catálogo validável com 11 Skills e aliases como `@Commander`, `@EPO` e `@QA`;
-- seleção determinística de equipe para catálogo, ciência, software, pesquisa e automação;
-- CLI `aef` para listar Skills, gerar briefs, planos, checklists e auditorias;
-- controle de iteração com orçamento e condição de parada;
-- auditoria em Markdown e JSON;
-- cinco exemplos completos, templates, checklists e documentação;
-- kit prático de referências visuais para prompts, com seleção por tipo de projeto;
-- testes automatizados e GitHub Actions;
-- licença Apache-2.0.
+Turn a request into a project plan with responsibilities, evidence requirements and a stopping point. Use the Markdown skills in a conversation, or run the local Python CLI to generate a repeatable plan. The CLI works offline after installation and requires no API key.
 
-## Instalação local
+[![License Apache 2.0](https://img.shields.io/badge/license-Apache%202.0-285365)](LICENSE) · [Source version](VERSION) · [CI runs](https://github.com/matheusflorindo32/apex-elite-framework/actions/workflows/quality.yml)
 
-Requer Python 3.11+ e [`uv`](https://docs.astral.sh/uv/).
+This branch prepares a release candidate for human review. The assistant's answer depends on its model and the context you supply. The CLI generates plans and checks the framework's files. People carry out and verify the planned work.
 
-```bash
-uv sync --dev
-uv run aef validate
-uv run pytest
+[Host compatibility](docs/COMPATIBILITY.md) · [Downloads and checksums](docs/DISTRIBUTION.md) · [Candidate review and rollback](docs/RELEASE_CANDIDATE.md) · [International benchmark](docs/quality/INTERNATIONAL_BENCHMARK.md)
+
+## Start with your task
+
+| You want to… | Start here |
+| --- | --- |
+| Try APEX in a chat | [Three-step guide with a sample answer](docs/QUICK_START.md) |
+| Student · narrow a thesis topic | [Open the synthetic scenario and copy the prompt (Português)](docs/RESEARCHERS.md#exercício-2--delimitar-um-tcc) |
+| Researcher · review a conclusion | [Try reviewing a synthetic abstract (Português)](docs/RESEARCHERS.md#exercício-1--revisar-a-conclusão-de-um-artigo) |
+| Teacher · prepare a class | [Copy the prompt for a 30-minute lesson](docs/QUICK_START.md) |
+| Developer · scope an app | [Install the CLI](docs/INSTALLATION.md) and generate a plan using the [software example](examples/software-project.md) |
+| Plan an automation with human approval | [Automation example](examples/automation.md) |
+| Prepare slides, layouts or illustrations | [Visual prompt kit](docs/VISUAL_PROMPT_KIT.md) |
+
+## Skill directory
+
+A skill is a set of written instructions. An alias is a short label you can use once the assistant has those instructions. Most source skills and CLI content are in Portuguese.
+
+| Need | Skill | Need | Skill |
+| --- | --- | --- | --- |
+| Coordinate several projects | [@Commander](skills/commander/SKILL.md) | Plan one delivery | [@EPO](skills/elite-project-orchestrator/SKILL.md) |
+| Evaluate methods | [@Scientific](skills/scientific/SKILL.md) | Organize sources | [@Research](skills/research/SKILL.md) |
+| Edit a publication | [@Editorial](skills/editorial/SKILL.md) | Design a visual | [@Design](skills/design/SKILL.md) |
+| Engineer software | [@Software](skills/software/SKILL.md) | Plan a workflow | [@Automation](skills/automation/SKILL.md) |
+| Structure a business | [@Business](skills/business/SKILL.md) | Reach an audience | [@Marketing](skills/marketing/SKILL.md) |
+| Check acceptance criteria | [@QA](skills/quality-assurance/SKILL.md) | | |
+
+## Architecture
+
+```mermaid
+flowchart LR
+    Request --> CLI
+    Catalog[Skills and project types] --> CLI
+    CLI --> Plan[Team plan]
+    Plan --> Review[Human review]
+    Markdown[Skill instructions] --> Assistant
+    Assistant --> Review
 ```
 
-Nenhuma chave de API é necessária. O AEF grava arquivos somente quando `--output` é informado.
+The CLI reads the catalog and project type to select a team, phases and review criteria. A conversational assistant reads the instructions you provide. Specify a project type explicitly for predictable routing. [Architecture](docs/ARCHITECTURE.md) · [Usage](docs/USAGE.md)
 
-## Uso rápido
+After installation, try the following in your checkout.
 
 ```bash
 uv run aef skills list
-uv run aef brief new --type catalog --output brief.md
-uv run aef plan --type catalog --request "Criar catálogo comercial" --output plan.md
-uv run aef checklist --type catalog
-uv run aef audit --format json --output audit.json
+uv run aef plan --type software --request "Plan an accessible reading diary"
+uv run aef checklist --type software
 ```
 
-Tipos disponíveis: `general`, `catalog`, `scientific`, `software`, `research` e `automation`. Sem `--type`, o comando `plan` pode classificar o pedido por palavras-chave e usa `general` quando não há sinal suficiente.
+[Skill catalog](docs/SKILLS.md) · [Research guide](docs/RESEARCHERS.md) · [Eight walkthroughs](examples/WALKTHROUGHS.md) · [Ecosystem](docs/ECOSYSTEM.md)
 
-Em conversas, os aliases documentais continuam simples:
+## ChatGPT and Codex
 
-```text
-@EPO Analise esta entrega, selecione a equipe necessária e aplique QA.
-@Commander Coordene este projeto, registre decisões e acione o @EPO por entrega.
-```
+For ChatGPT, attach the [knowledge file](bundles/APEX_CHATGPT_KNOWLEDGE.md). For a custom GPT, copy the [instructions](bundles/APEX_INSTRUCTIONS.md) into its Instructions field and add the knowledge file to Knowledge. For Codex, follow the [setup guide](bundles/APEX_CODEX_SETUP.md). Native skill discovery depends on the host and installation. Use only material you may share with that service.
 
-Em ambientes com Skills nativas do Codex, use `$elite-project-orchestrator` ou `$commander`.
+## Contribute
 
-## Uso no ChatGPT
+Report reproducible problems through [Issues](https://github.com/matheusflorindo32/apex-elite-framework/issues). Report sensitive findings through the [security policy](SECURITY.md). The release roadmap is to review the candidate, validate onboarding with real beginners and record host-specific compatibility evidence. [Contributing](CONTRIBUTING.md) · [Creating skills](docs/CREATING_SKILLS.md) · [Version policy](docs/VERSIONING.md) · [Change history](CHANGELOG.md)
 
-O repositório inclui instruções próprias para um GPT personalizado e um exportador determinístico de conhecimento:
-
-```bash
-uv run python scripts/export_chatgpt_knowledge.py --output apex-chatgpt-knowledge.md
-```
-
-No editor de GPTs do ChatGPT, use `chatgpt/INSTRUCTIONS.md` no campo de instruções e carregue o arquivo gerado como conhecimento. Depois de salvar o GPT com o nome `APEX EPO`, ele pode ser chamado no ChatGPT Web digitando `@` e selecionando o GPT. Os aliases internos `@EPO`, `@Commander` e especialistas são interpretados pelas instruções do AEF.
-
-## Direção visual e prompts
-
-Para sites, carrosséis, apresentações, infográficos, thumbnails, identidade visual e materiais científicos, use o [Kit Prático de Referências Visuais para Prompts](docs/VISUAL_PROMPT_KIT.md). Ele inclui:
-
-- seletor de ferramentas por tipo de projeto;
-- Prompt-Mestre Premium Elite;
-- comandos curtos como `/SITE`, `/CARROSSEL`, `/CIENTÍFICO` e `/AUDITORIA`;
-- regras de acessibilidade, consistência e prevenção de cópia;
-- combinações recomendadas para projetos científicos, táticos, premium e redes sociais.
-
-## Arquitetura
-
-- `src/aef/`: CLI, catálogo, planejamento, loop e validação;
-- `config/`: aliases, tipos de projeto, equipes e critérios;
-- `skills/`: instruções modulares com metadados nativos;
-- `templates/`, `checklists/` e `workflows/`: recursos reutilizáveis;
-- `schemas/`: contratos de saída;
-- `tests/`: testes unitários, estruturais e de CLI;
-- `docs/`: arquitetura, uso, criação de Skills, modelo de qualidade e direção visual.
-
-Leia [Arquitetura](docs/ARCHITECTURE.md), [Uso](docs/USAGE.md), [Criação de Skills](docs/CREATING_SKILLS.md), [Modelo de qualidade](docs/QUALITY_MODEL.md), [Kit Visual](docs/VISUAL_PROMPT_KIT.md) e [Versionamento](docs/VERSIONING.md).
-
-## Garantias e limites
-
-O CLI prepara e valida planos; ele não executa ações externas nem substitui julgamento profissional. Seleção por palavras-chave é deliberadamente simples, transparente e local. Projetos de alto risco exigem revisão humana e ferramentas específicas do domínio.
-
-## Licença
-
-Apache License 2.0. Consulte [LICENSE](LICENSE).
-
-Falhas de segurança devem seguir [SECURITY.md](SECURITY.md), sem exposição pública prematura.
+Created by Matheus Florindo. Distributed under the [Apache License 2.0](LICENSE).
