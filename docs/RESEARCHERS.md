@@ -54,7 +54,7 @@ Em uma nova conversa, forneça [@EPO](../skills/elite-project-orchestrator/SKILL
 
 **Aceite e aprovação humana.** A pergunta cabe no acervo, os seis marcos têm entregas conferíveis e a saída mantém as contagens em aberto. O orientador confirma acesso ao acervo real, comparabilidade das categorias, método, prazo e regras institucionais antes da coleta. Registre responsável, data, decisão e pendências. Se faltar acesso ou comparabilidade, ajuste o recorte antes de avançar.
 
-O comando `uv run aef plan --type scientific` gera um plano para revisão humana. Os dois exercícios podem ser feitos no chat com as entradas acima. [Início rápido](QUICK_START.pt-BR.md) · [Catálogo de skills](SKILLS.md)
+Os dois exercícios podem ser feitos no chat com as entradas acima. Em um checkout, o comando `uv run aef plan --type scientific` gera um plano para revisão humana. Consulte `docs/QUICK_START.pt-BR.md` e `docs/SKILLS.md` no repositório.
 
 ## Escolha uma tarefa
 

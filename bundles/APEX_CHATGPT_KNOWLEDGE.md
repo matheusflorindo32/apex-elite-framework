@@ -1,10 +1,16 @@
+<a name="apex-knowledge"></a>
+
 # Apex Elite Framework — Base de conhecimento para ChatGPT
 
 Versão consolidada e determinística das Skills, configurações, schemas, templates, checklists, workflows e exemplos do AEF.
 
 Use as instruções do GPT para comportamento e este arquivo para conhecimento operacional. Conteúdo delimitado por caminho de origem.
 
+Os links internos levam aos arquivos incluídos neste documento. Caminhos em código identificam recursos do repositório. Pesquise pelo caminho do arquivo em leitores de texto simples.
+
 ---
+
+<a name="apex-file-AGENTS.md"></a>
 
 ## Arquivo: `AGENTS.md`
 
@@ -81,6 +87,8 @@ Toda entrega relevante deve conter:
 - Em saúde, segurança pública e decisões institucionais, mantenha revisão humana e registre limites da automação.
 
 ---
+
+<a name="apex-file-LICENSE"></a>
 
 ## Arquivo: `LICENSE`
 
@@ -288,31 +296,37 @@ Apache License
 
 ---
 
+<a name="apex-file-README.md"></a>
+
 ## Arquivo: `README.md`
 
 # Apex Elite Framework
 
-[Português (Brasil)](../README.pt-BR.md) · [Quick start](../docs/QUICK_START.md) · [Installation](../docs/INSTALLATION.md) · [Skill directory](#skill-directory) · [Architecture](#architecture) · [Contribute](#contribute)
+[Português (Brasil)](#apex-file-README.pt-BR.md) · [Quick start](#apex-file-docs~2FQUICK_START.md) · Installation (`docs/INSTALLATION.md`) · [Skill directory](#apex-file-README.md-skill-directory) · [Architecture](#apex-file-README.md-architecture) · [Contribute](#apex-file-README.md-contribute)
 
-![Apex Elite Framework, three lines rising to a summit](../docs/assets/apex-banner.svg)
+Apex Elite Framework, three lines rising to a summit
 
 Turn a request into a project plan with responsibilities, evidence requirements and a stopping point. Use the Markdown skills in a conversation, or run the local Python CLI to generate a repeatable plan. The CLI works offline after installation and requires no API key.
 
-[![License Apache 2.0](https://img.shields.io/badge/license-Apache%202.0-285365)](../LICENSE) · [Source version](../VERSION) · [CI runs](https://github.com/matheusflorindo32/apex-elite-framework/actions/workflows/quality.yml)
+[License Apache 2.0](#apex-file-LICENSE) · [Source version](#apex-file-VERSION) · [CI runs](https://github.com/matheusflorindo32/apex-elite-framework/actions/workflows/quality.yml)
 
 This branch prepares a release candidate for human review. The assistant's answer depends on its model and the context you supply. The CLI generates plans and checks the framework's files. People carry out and verify the planned work.
 
-[Host compatibility](../docs/COMPATIBILITY.md) · [Downloads and checksums](../docs/DISTRIBUTION.md) · [Candidate review and rollback](../docs/RELEASE_CANDIDATE.md) · [International benchmark](../docs/quality/INTERNATIONAL_BENCHMARK.md)
+[Host compatibility](#apex-file-docs~2FCOMPATIBILITY.md) · Downloads and checksums (`docs/DISTRIBUTION.md`) · Candidate review and rollback (`docs/RELEASE_CANDIDATE.md`) · International benchmark (`docs/quality/INTERNATIONAL_BENCHMARK.md`)
 
 ## Start with your task
 
 | You want to… | Start here |
 | --- | --- |
-| Try a first task in ChatGPT without installing software | [Three-step guide with a sample answer](../docs/QUICK_START.md) |
-| Critique a paper or prepare a research project | [Scientific review example](../examples/scientific-review.md) · [Scientific checklist](../checklists/scientific-qa.md) |
-| Scope an app and review the plan | [Software example](../examples/software-project.md) · [Developer installation](../docs/INSTALLATION.md) |
-| Plan an automation with human approval | [Automation example](../examples/automation.md) |
-| Prepare slides, layouts or illustrations | [Visual prompt kit](../docs/VISUAL_PROMPT_KIT.md) |
+| Try APEX in a chat | [Three-step guide with a sample answer](#apex-file-docs~2FQUICK_START.md) |
+| Student · narrow a thesis topic | [Open the synthetic scenario and copy the prompt (Português)](#apex-file-docs~2FRESEARCHERS.md-exercício-2--delimitar-um-tcc) |
+| Researcher · review a conclusion | [Try reviewing a synthetic abstract (Português)](#apex-file-docs~2FRESEARCHERS.md-exercício-1--revisar-a-conclusão-de-um-artigo) |
+| Teacher · prepare a class | [Copy the prompt for a 30-minute lesson](#apex-file-docs~2FQUICK_START.md) |
+| Developer · scope an app | Install the CLI (`docs/INSTALLATION.md`) and generate a plan using the [software example](#apex-file-examples~2Fsoftware-project.md) |
+| Plan an automation with human approval | [Automation example](#apex-file-examples~2Fautomation.md) |
+| Prepare slides, layouts or illustrations | [Visual prompt kit](#apex-file-docs~2FVISUAL_PROMPT_KIT.md) |
+
+<a name="apex-file-README.md-skill-directory"></a>
 
 ## Skill directory
 
@@ -320,12 +334,14 @@ A skill is a set of written instructions. An alias is a short label you can use 
 
 | Need | Skill | Need | Skill |
 | --- | --- | --- | --- |
-| Coordinate several projects | [@Commander](../skills/commander/SKILL.md) | Plan one delivery | [@EPO](../skills/elite-project-orchestrator/SKILL.md) |
-| Evaluate methods | [@Scientific](../skills/scientific/SKILL.md) | Organize sources | [@Research](../skills/research/SKILL.md) |
-| Edit a publication | [@Editorial](../skills/editorial/SKILL.md) | Design a visual | [@Design](../skills/design/SKILL.md) |
-| Engineer software | [@Software](../skills/software/SKILL.md) | Plan a workflow | [@Automation](../skills/automation/SKILL.md) |
-| Structure a business | [@Business](../skills/business/SKILL.md) | Reach an audience | [@Marketing](../skills/marketing/SKILL.md) |
-| Check acceptance criteria | [@QA](../skills/quality-assurance/SKILL.md) | | |
+| Coordinate several projects | [@Commander](#apex-file-skills~2Fcommander~2FSKILL.md) | Plan one delivery | [@EPO](#apex-file-skills~2Felite-project-orchestrator~2FSKILL.md) |
+| Evaluate methods | [@Scientific](#apex-file-skills~2Fscientific~2FSKILL.md) | Organize sources | [@Research](#apex-file-skills~2Fresearch~2FSKILL.md) |
+| Edit a publication | [@Editorial](#apex-file-skills~2Feditorial~2FSKILL.md) | Design a visual | [@Design](#apex-file-skills~2Fdesign~2FSKILL.md) |
+| Engineer software | [@Software](#apex-file-skills~2Fsoftware~2FSKILL.md) | Plan a workflow | [@Automation](#apex-file-skills~2Fautomation~2FSKILL.md) |
+| Structure a business | [@Business](#apex-file-skills~2Fbusiness~2FSKILL.md) | Reach an audience | [@Marketing](#apex-file-skills~2Fmarketing~2FSKILL.md) |
+| Check acceptance criteria | [@QA](#apex-file-skills~2Fquality-assurance~2FSKILL.md) | | |
+
+<a name="apex-file-README.md-architecture"></a>
 
 ## Architecture
 
@@ -339,7 +355,7 @@ flowchart LR
     Assistant --> Review
 ```
 
-The CLI reads the catalog and project type to select a team, phases and review criteria. A conversational assistant reads the instructions you provide. Specify a project type explicitly for predictable routing. [Architecture](../docs/ARCHITECTURE.md) · [Usage](../docs/USAGE.md)
+The CLI reads the catalog and project type to select a team, phases and review criteria. A conversational assistant reads the instructions you provide. Specify a project type explicitly for predictable routing. [Architecture](#apex-file-docs~2FARCHITECTURE.md) · [Usage](#apex-file-docs~2FUSAGE.md)
 
 After installation, try the following in your checkout.
 
@@ -349,25 +365,116 @@ uv run aef plan --type software --request "Plan an accessible reading diary"
 uv run aef checklist --type software
 ```
 
-[Skill catalog](../docs/SKILLS.md) · [Research guide](../docs/RESEARCHERS.md) · [Eight walkthroughs](../examples/WALKTHROUGHS.md) · [Ecosystem](../docs/ECOSYSTEM.md)
+[Skill catalog](#apex-file-docs~2FSKILLS.md) · [Research guide](#apex-file-docs~2FRESEARCHERS.md) · [Eight walkthroughs](#apex-file-examples~2FWALKTHROUGHS.md) · [Ecosystem](#apex-file-docs~2FECOSYSTEM.md)
 
 ## ChatGPT and Codex
 
-For ChatGPT, attach the [knowledge file](APEX_CHATGPT_KNOWLEDGE.md). For a custom GPT, copy the [instructions](APEX_INSTRUCTIONS.md) into its Instructions field and add the knowledge file to Knowledge. For Codex, follow the [setup guide](APEX_CODEX_SETUP.md). Native skill discovery depends on the host and installation. Use only material you may share with that service.
+For ChatGPT, attach the [knowledge file](#apex-knowledge). For a custom GPT, copy the [instructions](#apex-file-chatgpt~2FINSTRUCTIONS.md) into its Instructions field and add the knowledge file to Knowledge. For Codex, follow the [setup guide](#apex-file-docs~2FCODEX_SETUP.md). Native skill discovery depends on the host and installation. Use only material you may share with that service.
+
+<a name="apex-file-README.md-contribute"></a>
 
 ## Contribute
 
-Report reproducible problems through [Issues](https://github.com/matheusflorindo32/apex-elite-framework/issues). Report sensitive findings through the [security policy](../SECURITY.md). The release roadmap is to review the candidate, validate onboarding with real beginners and record host-specific compatibility evidence. [Contributing](../CONTRIBUTING.md) · [Creating skills](../docs/CREATING_SKILLS.md) · [Version policy](../docs/VERSIONING.md) · [Change history](../CHANGELOG.md)
+Report reproducible problems through [Issues](https://github.com/matheusflorindo32/apex-elite-framework/issues). Report sensitive findings through the security policy (`SECURITY.md`). The release roadmap is to review the candidate, validate onboarding with real beginners and record host-specific compatibility evidence. Contributing (`CONTRIBUTING.md`) · Creating skills (`docs/CREATING_SKILLS.md`) · [Version policy](#apex-file-docs~2FVERSIONING.md) · Change history (`CHANGELOG.md`)
 
-Created by Matheus Florindo. Distributed under the [Apache License 2.0](../LICENSE).
+Created by Matheus Florindo. Distributed under the [Apache License 2.0](#apex-file-LICENSE).
 
 ---
+
+<a name="apex-file-README.pt-BR.md"></a>
+
+## Arquivo: `README.pt-BR.md`
+
+# Apex Elite Framework
+
+[English](#apex-file-README.md) · [Início rápido](#apex-file-docs~2FQUICK_START.pt-BR.md) · Instalação (`docs/INSTALLATION.md`) · [Especialidades](#apex-file-README.pt-BR.md-especialidades) · [Arquitetura](#apex-file-README.pt-BR.md-arquitetura) · [Contribuição](#apex-file-README.pt-BR.md-contribuição)
+
+Apex Elite Framework, três linhas formando um cume
+
+Transforme um pedido em um plano com responsáveis, evidências necessárias e condições de parada. Use as skills em Markdown numa conversa ou gere um plano reproduzível com a ferramenta local em Python. Depois da instalação, a CLI funciona offline e dispensa chave de API.
+
+[Licença Apache 2.0](#apex-file-LICENSE) · [Versão do código](#apex-file-VERSION) · [Execuções de CI](https://github.com/matheusflorindo32/apex-elite-framework/actions/workflows/quality.yml)
+
+Esta branch prepara uma candidata a lançamento para revisão humana. Em uma conversa, as respostas dependem do modelo e do contexto fornecido. A CLI gera planos e verifica os arquivos do framework. Cabe às pessoas executar o trabalho planejado e conferir os resultados.
+
+[Compatibilidade por plataforma](#apex-file-docs~2FCOMPATIBILITY.md) · Downloads e checksums (`docs/DISTRIBUTION.md`) · Candidata e rollback (`docs/RELEASE_CANDIDATE.md`) · Benchmark internacional (`docs/quality/INTERNATIONAL_BENCHMARK.md`)
+
+## Escolha seu ponto de partida
+
+| Objetivo | Recurso |
+| --- | --- |
+| Experimentar o APEX em uma conversa | [Três passos com exemplo de resposta](#apex-file-docs~2FQUICK_START.pt-BR.md) |
+| Estudante · delimitar um TCC | [Abra o cenário fictício e copie o pedido](#apex-file-docs~2FRESEARCHERS.md-exercício-2--delimitar-um-tcc) |
+| Pesquisador · revisar uma conclusão | [Teste a revisão de um resumo fictício](#apex-file-docs~2FRESEARCHERS.md-exercício-1--revisar-a-conclusão-de-um-artigo) |
+| Professor · preparar uma aula | [Copie o pedido de uma aula de 30 minutos](#apex-file-docs~2FQUICK_START.pt-BR.md) |
+| Desenvolvedor · planejar um aplicativo | Instale a CLI (`docs/INSTALLATION.md`) e gere um plano seguindo o [exemplo de software](#apex-file-examples~2Fsoftware-project.md) |
+| Organizar uma automação com aprovação humana | [Exemplo de automação](#apex-file-examples~2Fautomation.md) |
+| Criar slides, diagramas ou ilustrações | [Kit prático de referências visuais](#apex-file-docs~2FVISUAL_PROMPT_KIT.md) |
+
+<a name="apex-file-README.pt-BR.md-especialidades"></a>
+
+## Especialidades
+
+Uma skill reúne instruções escritas. Um alias é uma forma curta de indicar a especialidade depois de fornecer as instruções ao assistente.
+
+| Necessidade | Skill | Necessidade | Skill |
+| --- | --- | --- | --- |
+| Coordenar vários projetos | [@Commander](#apex-file-skills~2Fcommander~2FSKILL.md) | Planejar uma entrega | [@EPO](#apex-file-skills~2Felite-project-orchestrator~2FSKILL.md) |
+| Avaliar métodos | [@Scientific](#apex-file-skills~2Fscientific~2FSKILL.md) | Organizar fontes | [@Research](#apex-file-skills~2Fresearch~2FSKILL.md) |
+| Editar uma publicação | [@Editorial](#apex-file-skills~2Feditorial~2FSKILL.md) | Criar material visual | [@Design](#apex-file-skills~2Fdesign~2FSKILL.md) |
+| Projetar software | [@Software](#apex-file-skills~2Fsoftware~2FSKILL.md) | Estruturar um fluxo | [@Automation](#apex-file-skills~2Fautomation~2FSKILL.md) |
+| Estruturar um negócio | [@Business](#apex-file-skills~2Fbusiness~2FSKILL.md) | Comunicar com o público | [@Marketing](#apex-file-skills~2Fmarketing~2FSKILL.md) |
+| Verificar critérios de aceite | [@QA](#apex-file-skills~2Fquality-assurance~2FSKILL.md) | | |
+
+<a name="apex-file-README.pt-BR.md-arquitetura"></a>
+
+## Arquitetura
+
+```mermaid
+flowchart LR
+    Pedido --> CLI
+    Catalogo[Skills e tipos de projeto] --> CLI
+    CLI --> Plano[Plano de equipe]
+    Plano --> Revisao[Revisão humana]
+    Markdown[Instruções da skill] --> Assistente
+    Assistente --> Revisao
+```
+
+A CLI consulta o catálogo e o tipo de projeto para selecionar equipe, fases e critérios de revisão. Na conversa, o assistente lê as instruções fornecidas. Informe o tipo de projeto para obter roteamento previsível. [Arquitetura](#apex-file-docs~2FARCHITECTURE.md) · [Uso](#apex-file-docs~2FUSAGE.md)
+
+Depois da instalação, experimente na pasta do projeto.
+
+```bash
+uv run aef skills list
+uv run aef plan --type software --request "Planejar um diário de leitura acessível"
+uv run aef checklist --type software
+```
+
+[Catálogo](#apex-file-docs~2FSKILLS.md) · [Guia de pesquisa](#apex-file-docs~2FRESEARCHERS.md) · [Oito demonstrações](#apex-file-examples~2FWALKTHROUGHS.md) · [Ecossistema](#apex-file-docs~2FECOSYSTEM.md)
+
+## ChatGPT e Codex
+
+No ChatGPT, anexe o [arquivo de conhecimento](#apex-knowledge). Para um GPT personalizado, copie as [instruções](#apex-file-chatgpt~2FINSTRUCTIONS.md) para o campo Instructions e adicione o arquivo de conhecimento em Knowledge. No Codex, consulte o [guia de configuração](#apex-file-docs~2FCODEX_SETUP.md). A descoberta de skills nativas depende da plataforma e da instalação. Use somente materiais que você possa compartilhar com o serviço.
+
+<a name="apex-file-README.pt-BR.md-contribuição"></a>
+
+## Contribuição
+
+Relate problemas reproduzíveis em [Issues](https://github.com/matheusflorindo32/apex-elite-framework/issues). Encaminhe falhas sensíveis pela política de segurança (`SECURITY.md`). As próximas etapas são revisar a candidata, observar iniciantes no primeiro uso e registrar evidências por plataforma. Como contribuir (`CONTRIBUTING.md`) · Como criar skills (`docs/CREATING_SKILLS.md`) · [Versionamento](#apex-file-docs~2FVERSIONING.md) · Histórico (`CHANGELOG.md`)
+
+Criado por Matheus Florindo. Distribuído sob a [licença Apache 2.0](#apex-file-LICENSE).
+
+---
+
+<a name="apex-file-VERSION"></a>
 
 ## Arquivo: `VERSION`
 
 1.0.1rc1
 
 ---
+
+<a name="apex-file-chatgpt~2FINSTRUCTIONS.md"></a>
 
 ## Arquivo: `chatgpt/INSTRUCTIONS.md`
 
@@ -437,6 +544,8 @@ Responder em português do Brasil, mantendo comandos, APIs e identificadores té
 
 ---
 
+<a name="apex-file-checklists~2Fautomation-qa.md"></a>
+
 ## Arquivo: `checklists/automation-qa.md`
 
 # QA — Automação
@@ -452,6 +561,8 @@ Responder em português do Brasil, mantendo comandos, APIs e identificadores té
 - [ ] Falhas são observáveis e acionáveis.
 
 ---
+
+<a name="apex-file-checklists~2Fcatalog-qa.md"></a>
 
 ## Arquivo: `checklists/catalog-qa.md`
 
@@ -477,6 +588,8 @@ Responder em português do Brasil, mantendo comandos, APIs e identificadores té
 
 ---
 
+<a name="apex-file-checklists~2Ffinal-qa.md"></a>
+
 ## Arquivo: `checklists/final-qa.md`
 
 # Checklist final universal
@@ -497,6 +610,8 @@ Responder em português do Brasil, mantendo comandos, APIs e identificadores té
 
 ---
 
+<a name="apex-file-checklists~2Fresearch-qa.md"></a>
+
 ## Arquivo: `checklists/research-qa.md`
 
 # QA — Pesquisa
@@ -511,6 +626,8 @@ Responder em português do Brasil, mantendo comandos, APIs e identificadores té
 - [ ] Citações apontam diretamente para a evidência usada.
 
 ---
+
+<a name="apex-file-checklists~2Fscientific-qa.md"></a>
 
 ## Arquivo: `checklists/scientific-qa.md`
 
@@ -527,6 +644,8 @@ Responder em português do Brasil, mantendo comandos, APIs e identificadores té
 - [ ] Revisão humana de domínio foi registrada quando necessária.
 
 ---
+
+<a name="apex-file-checklists~2Fsoftware-qa.md"></a>
 
 ## Arquivo: `checklists/software-qa.md`
 
@@ -545,8 +664,11 @@ Responder em português do Brasil, mantendo comandos, APIs e identificadores té
 
 ---
 
+<a name="apex-file-config~2Fproject-types.json"></a>
+
 ## Arquivo: `config/project-types.json`
 
+```json
 {
   "project_types": {
     "general": {
@@ -631,11 +753,15 @@ Responder em português do Brasil, mantendo comandos, APIs e identificadores té
     }
   }
 }
+```
 
 ---
 
+<a name="apex-file-config~2Fskills.json"></a>
+
 ## Arquivo: `config/skills.json`
 
+```json
 {
   "skills": [
     {"directory": "commander", "alias": "@Commander", "role": "portfolio_orchestrator"},
@@ -651,8 +777,11 @@ Responder em português do Brasil, mantendo comandos, APIs e identificadores té
     {"directory": "quality-assurance", "alias": "@QA", "role": "quality_gate"}
   ]
 }
+```
 
 ---
+
+<a name="apex-file-docs~2FARCHITECTURE.md"></a>
 
 ## Arquivo: `docs/ARCHITECTURE.md`
 
@@ -692,24 +821,67 @@ Integrações com modelos devem ser opcionais, isoladas sob `integrations/` e pr
 
 ---
 
+<a name="apex-file-docs~2FCODEX_SETUP.md"></a>
+
 ## Arquivo: `docs/CODEX_SETUP.md`
 
 # Use APEX in Codex
 
-Open a checkout of the APEX repository as the workspace. Ask Codex to read
-`AGENTS.md`, `skills/commander/SKILL.md` and
-`skills/elite-project-orchestrator/SKILL.md`. All three are plain text.
+## With a downloaded file
 
-Try “Use @EPO to plan a classroom activity on probability. Give me a brief,
-a worked example, a time budget and a checklist.” Inspect the proposed time
-budget and independently verify the calculation. The alias is a convention
-defined by the APEX instructions. Native skill discovery depends on the host.
+Save APEX_CHATGPT_KNOWLEDGE.md in a workspace you control. Ask Codex to read that local file, find the elite-project-orchestrator skill and use its acceptance criteria for the activity below. If the client supports attachments, you can supply the same Markdown as context. This method requires a client that can read the file and a model with enough context.
 
-For another workspace, attach the universal APEX_CHATGPT_KNOWLEDGE.md as
-context or point Codex to its local path. These workflows require no Python
-installation. They do require a host with sufficient context capacity.
+> Use @EPO to plan a classroom activity on probability. Give me a brief, a worked example, a time budget and a checklist.
+
+Add the minutes in the proposed budget and check the calculation in the example. The alias identifies a role in the APEX catalog. Native discovery requires separate host configuration and verification.
+
+## With a repository checkout
+
+Open the APEX checkout as your workspace. Ask Codex to read AGENTS.md, skills/commander/SKILL.md and skills/elite-project-orchestrator/SKILL.md before using the same request. Both workflows use plain text and require no Python installation.
 
 ---
+
+<a name="apex-file-docs~2FCOMPATIBILITY.md"></a>
+
+## Arquivo: `docs/COMPATIBILITY.md`
+
+# Compatibility by delivery method
+
+Official documentation was retrieved on 2026-11-25. Every host below is **untested with this APEX candidate**. “Native skills” describes a discovery mechanism documented by the host. Availability depends on client version, account, policy and selected agent. The local Python CLI performs planning independently of these products.
+
+| Host | Documented or proposed route | Procedure for an evaluation | Evidence |
+|---|---|---|---|
+| ChatGPT | Upload or paste | Attach the knowledge Markdown if the interface accepts it, or paste a single workflow. | [Official documentation](https://help.openai.com/en/articles/8555545-uploading-files-and-audio-to-chatgpt) |
+| GPTs | Upload and instructions | Put behavior in Instructions and attach the knowledge document in the builder. | [Official documentation](https://help.openai.com/en/articles/8554397-creating-and-editing-gpts) |
+| Codex | Native skills | Use the Codex setup guide and verify that the client lists the installed skill. | [Official documentation](https://learn.chatgpt.com/docs/build-skills) |
+| Claude | Upload or paste | Attach the knowledge Markdown or paste the relevant section into a conversation. | [Official documentation](https://support.claude.com/en/articles/8241126-upload-files-to-claude) |
+| Claude Code | Native skills | Install a skill directory using the documented project or user skill location. | [Official documentation](https://code.claude.com/docs/en/skills) |
+| Gemini | Upload or paste | Use a supported attachment or paste the small workflow directly. | [Official documentation](https://support.google.com/gemini/answer/14903178) |
+| Gemini CLI | Native skills | Follow the CLI discovery instructions for an individual skill directory. | [Official documentation](https://geminicli.com/docs/cli/skills/) |
+| GitHub Copilot | Native skills in supported agents | Use a documented repository skills location. Confirm the selected Copilot surface supports skills. | [Official documentation](https://docs.github.com/en/copilot/concepts/customizations/agent-skills) |
+| Cursor | Native skills | Follow the editor’s documented skills discovery convention. | [Official documentation](https://cursor.com/docs/skills) |
+| VS Code | Native skills in agent-enabled chat | Check the installed agent and its skill discovery configuration. | [Official documentation](https://code.visualstudio.com/docs/agent-customization/agent-skills) |
+| Ollama | Local instructions, experimental | Use a small excerpt in the prompt or SYSTEM instruction. Select an installed model. | [Official documentation](https://docs.ollama.com/modelfile) |
+| LM Studio | Local chat instructions, experimental | Paste a small workflow into a chat with a loaded model. | [Official documentation](https://lmstudio.ai/docs/app/basics/chat) |
+| PocketPal AI | Local mobile instructions, experimental | Paste one workflow into chat. Device memory and model context constrain input size. | [Official documentation](https://github.com/a-ghorbani/pocketpal-ai) |
+| Standard | Other Agent Skills hosts, experimental | Check the host’s supported specification version, resource paths and discovery rules. | [Official documentation](https://agentskills.io/specification) |
+
+## What the artifacts establish
+
+A skill contains a directory and a SKILL.md with name and description. The portable knowledge document supplies context to a model. Aliases such as `@EPO` identify catalog roles. An assistant can interpret one after receiving the catalog. A host-specific command, tool registration or API invocation requires separate evidence.
+
+APEX provides no supported host API adapter or MCP server in this release. Local-model suggestions are experimental. Their evaluation requires a model that fits the available device, an adequate context window and a user review of the response.
+
+## Reproducible host check
+
+1. Record the product, exact client version, model, date, delivery method and enablement settings. Use public example data.
+2. For native discovery, install one skill per the official guide and confirm that the client displays its registered name and description. For upload, confirm the attachment is readable by asking for a named checklist item.
+3. Ask for a one-page lesson plan with one learning objective and one assessment. Record the selected role, output, acceptance criteria and any missing context.
+4. Record discovery and task completion separately. Attach a sanitized transcript before upgrading a host to verified. A fluent answer alone cannot demonstrate native discovery.
+
+---
+
+<a name="apex-file-docs~2FECOSYSTEM.md"></a>
 
 ## Arquivo: `docs/ECOSYSTEM.md`
 
@@ -726,6 +898,8 @@ installation. They do require a host with sufficient context capacity.
 Keep private manuscripts, credentials and participant records outside public issues, packages and examples. For a manual handoff, record the responsible reviewer, public input identifier, date, scope, returned evidence and unresolved questions. The researcher approves interpretations, attribution and disclosure of AI assistance.
 
 ---
+
+<a name="apex-file-docs~2FQUALITY_MODEL.md"></a>
 
 ## Arquivo: `docs/QUALITY_MODEL.md`
 
@@ -755,30 +929,166 @@ Use no máximo três ciclos de correção. Pare antes se os gates passarem. Pare
 
 ---
 
+<a name="apex-file-docs~2FQUICK_START.md"></a>
+
+## Arquivo: `docs/QUICK_START.md`
+
+# Your first APEX plan
+
+[Português](#apex-file-docs~2FQUICK_START.pt-BR.md) · [Project overview](#apex-file-README.md)
+
+Imagine you have 30 minutes to teach students how to judge a source. Try planning the class with the project's delivery coordinator, called @EPO. Set aside 5–10 minutes to try it. All you need is a browser and a chat assistant that accepts text.
+
+1. **Get the instructions.** Open the [coordinator skill](#apex-file-skills~2Felite-project-orchestrator~2FSKILL.md). On GitHub, use **Copy raw file** or **Download raw file** in the file toolbar. The file is plain text. For all eleven skills together, download the [knowledge file](#apex-knowledge) the same way.
+2. **Give your chat the context.** Start a new conversation. Attach the downloaded file or paste the coordinator instructions. Copy the following request into the same conversation.
+
+   > @EPO Plan a 30-minute class for first-year students on checking a source. Give me one learning objective, three timed activities and one way to check learning. Answer in English. Label any assumptions.
+
+3. **Check the result.** Add the minutes and check that the closing activity actually measures the objective. If it asks students to memorize terminology, ask for an activity where they judge a source and explain their reasoning.
+
+**Illustrative answer.** Objective: identify the author, date and supporting evidence for one claim. Spend 5 minutes examining a claim, 15 minutes comparing two source excerpts in pairs and 10 minutes writing an individual verdict. Collect the verdict and check whether it cites one detail from each excerpt. Assumption: the teacher supplies both excerpts.
+
+## Choose your next task
+
+| Profile | What to try | What to verify |
+| --- | --- | --- |
+| Student | Paste the [synthetic thesis prompt (Português)](#apex-file-docs~2FRESEARCHERS.md-exercício-2--delimitar-um-tcc) with the @EPO and @Research instructions. | Every milestone has an output you can show. |
+| Researcher | Paste the [synthetic article abstract (Português)](#apex-file-docs~2FRESEARCHERS.md-exercício-1--revisar-a-conclusão-de-um-artigo) with the @Scientific instructions. | Trace each criticism to the supplied text. Mark missing details as unknown. |
+| Developer | Follow the installation guide (`docs/INSTALLATION.md`) and run `uv run aef plan --type software --request "Plan an accessible reading diary"`. | Run the project's checks and review the plan before implementation. |
+| Teacher | Paste the [@Editorial instructions](#apex-file-skills~2Feditorial~2FSKILL.md) and your lesson outline. Ask for a student handout. | Compare the exercise with the objective. |
+
+## Observe a first-time user
+
+Ask someone new to APEX to start at the README and try the three steps above without coaching. Allow 5–10 minutes and start timing when they open the README. Count a success when they find the skill, submit the prompt and check that the activities total 30 minutes and that the final activity measures the objective. Record elapsed time, last step reached, confusion, requested help and outcome. If time runs out, record where they stopped. The range is a session budget. Actual time still needs to be observed with beginners.
+
+## Common questions
+
+**What if the assistant ignores @EPO?** Paste the coordinator instructions and explicitly ask it to follow them. The alias is a label in this project. Other specialties are listed in the [skill catalog](#apex-file-docs~2FSKILLS.md).
+
+**What if uploads are unavailable?** Copy the text of one skill into the conversation. Long knowledge files may exceed a host's context limit.
+
+**Can it retrieve scientific references?** APEX organizes the review. Supply verified sources and check each citation yourself. [Research guide](#apex-file-docs~2FRESEARCHERS.md)
+
+**Will I get the same wording?** Chat responses vary. For repeatable local planning with a fixed catalog and input, use the CLI.
+
+---
+
+<a name="apex-file-docs~2FQUICK_START.pt-BR.md"></a>
+
+## Arquivo: `docs/QUICK_START.pt-BR.md`
+
+# Seu primeiro plano com o APEX
+
+[English](#apex-file-docs~2FQUICK_START.md) · [Visão geral](#apex-file-README.pt-BR.md)
+
+Imagine que você dispõe de 30 minutos para ensinar uma turma a avaliar uma fonte. Experimente planejar a aula com o coordenador de entregas, chamado @EPO. Reserve de 5 a 10 minutos para tentar. Basta um navegador e um assistente de conversa que aceite texto.
+
+1. **Obtenha as instruções.** Abra a [skill do coordenador](#apex-file-skills~2Felite-project-orchestrator~2FSKILL.md). Na barra do arquivo no GitHub, use **Copy raw file** para copiar ou **Download raw file** para baixar. O arquivo contém texto simples. Para obter as onze skills juntas, baixe o [arquivo de conhecimento](#apex-knowledge) da mesma maneira.
+2. **Dê contexto ao assistente.** Abra uma conversa. Anexe o arquivo ou cole o texto da skill. Copie o pedido a seguir para a mesma conversa.
+
+   > @EPO Planeje uma aula de 30 minutos para calouros sobre como conferir uma fonte. Quero um objetivo de aprendizagem, três atividades com duração e uma forma de verificar o aprendizado. Explicite as suposições.
+
+3. **Confira o resultado.** Some os minutos e confira se a atividade final mede o objetivo. Se a tarefa exigir apenas memorizar termos, peça uma atividade em que cada aluno avalie uma fonte e explique seu raciocínio.
+
+**Exemplo ilustrativo de resposta.** Objetivo: identificar autoria, data e evidência de uma afirmação. Reserve 5 minutos para ler uma afirmação, 15 para comparar dois trechos em duplas e 10 para cada aluno redigir seu parecer. Recolha os pareceres e confira se citam um detalhe de cada trecho. Suposição: o professor fornece ambos os textos.
+
+## Escolha sua próxima tarefa
+
+| Perfil | O que experimentar | O que conferir |
+| --- | --- | --- |
+| Estudante | Cole o [pedido do TCC fictício](#apex-file-docs~2FRESEARCHERS.md-exercício-2--delimitar-um-tcc) com as instruções de @EPO e @Research. | Cada marco produz algo que pode ser apresentado. |
+| Pesquisador | Cole o [resumo fictício do artigo](#apex-file-docs~2FRESEARCHERS.md-exercício-1--revisar-a-conclusão-de-um-artigo) com as instruções de @Scientific. | Vincule cada crítica ao texto fornecido. Registre detalhes ausentes como desconhecidos. |
+| Desenvolvedor | Siga a instalação (`docs/INSTALLATION.md`) e execute `uv run aef plan --type software --request "Planejar um diário de leitura acessível"`. | Execute os testes do projeto e revise o plano antes da implementação. |
+| Professor | Cole as [instruções de @Editorial](#apex-file-skills~2Feditorial~2FSKILL.md) e o plano de aula acima. Peça uma folha de atividade. | Compare o exercício com o objetivo. |
+
+## Observe o primeiro uso
+
+Peça a alguém que ainda não conhece o APEX para começar pelo README e tentar os três passos acima sem orientação. Reserve de 5 a 10 minutos e comece a contar quando a pessoa abrir o README. Considere que houve sucesso quando ela localizar a skill, enviar o pedido e verificar que as atividades somam 30 minutos e que a última mede o objetivo. Registre tempo decorrido, etapa alcançada, ponto de dúvida, ajuda solicitada e resultado. Se o tempo acabar, registre o ponto de parada. A faixa é um orçamento de observação. O tempo real ainda depende de testes com iniciantes.
+
+## Dúvidas frequentes
+
+**O assistente ignorou @EPO.** Cole as instruções do coordenador e peça explicitamente que o assistente as siga. O alias é um apelido definido no projeto. As demais especialidades estão no [catálogo](#apex-file-docs~2FSKILLS.md).
+
+**Não consigo anexar arquivos.** Cole o texto de uma única skill na conversa. O arquivo completo pode exceder o limite de contexto de alguns serviços.
+
+**O APEX recupera referências científicas?** O APEX organiza a revisão. Forneça fontes verificadas e confira cada citação. [Guia de pesquisa](#apex-file-docs~2FRESEARCHERS.md)
+
+**A resposta será sempre igual?** O texto produzido pelo assistente varia. Para planejamento local reproduzível com catálogo e entrada fixos, use a CLI.
+
+---
+
+<a name="apex-file-docs~2FRESEARCHERS.md"></a>
+
 ## Arquivo: `docs/RESEARCHERS.md`
 
 # Working with scientific evidence · Guia de pesquisa
 
-Use apenas material que você possa compartilhar. Um docente pode executar os exemplos com os dados fictícios abaixo. O APEX organiza perguntas, papéis e verificações. O pesquisador consulta as fontes, avalia o conteúdo e assina a conclusão. Consulte as [responsabilidades do ecossistema](../docs/ECOSYSTEM.md).
+Use apenas material que você possa compartilhar. Um docente pode executar os exemplos com os dados fictícios abaixo. O APEX organiza perguntas, papéis e verificações. O pesquisador consulta as fontes, avalia o conteúdo e assina a conclusão. Consulte as [responsabilidades do ecossistema](#apex-file-docs~2FECOSYSTEM.md).
 
-## Exercício com um resumo fictício
+<a name="apex-file-docs~2FRESEARCHERS.md-exercício-1--revisar-a-conclusão-de-um-artigo"></a>
 
-> Uma turma voluntária de 20 alunos passou de média 6 para 7 após uma oficina. O resumo não informa grupo de comparação nem perdas. @Scientific, faça uma tabela com observação, inferência possível, explicações alternativas e dados ausentes.
+## Exercício 1 — Revisar a conclusão de um artigo
 
-Resultado ilustrativo para conferir manualmente:
+Abra uma conversa, copie o texto de [@Scientific](#apex-file-skills~2Fscientific~2FSKILL.md) e cole o pedido completo. O resumo é inteiramente fictício.
 
-| Observação | Inferência possível | Explicações alternativas | Informação a solicitar |
+> @Scientific, revise este resumo fictício usando somente o material abaixo. Faça uma tabela com a conclusão avaliada, o resultado que a sustenta, o limite da inferência e a informação que falta. Reescreva a conclusão em duas frases.
+>
+> Método informado. Uma turma de 20 alunos que se voluntariaram para uma oficina respondeu a testes antes e depois da atividade. Resultados informados. A média anterior foi 6 e a posterior foi 7. O resumo omite grupo de comparação, perdas, dados pareados, dispersão e teste estatístico. Conclusão do artigo. “A oficina causou um ganho estatisticamente significativo de um ponto na aprendizagem.”
+
+**Resultado ilustrativo**
+
+| Conclusão avaliada | Evidência fornecida | Limite da inferência | Informação a solicitar |
 |---|---|---|---|
-| A média aumentou um ponto | Houve diferença descritiva entre as médias informadas | Seleção, prática com o instrumento ou mudança na composição da turma | Pares observados, perdas, comparador, dispersão e calendário |
+| Ganho de um ponto | As médias informadas foram 6 e 7. | Diferença descritiva de um ponto entre as médias. A composição das duas avaliações é desconhecida. | Quantidade de respostas em cada avaliação, perdas e correspondência individual. |
+| Ganho causado pela oficina | O resumo descreve medições antes e depois em uma turma voluntária. | Aprendizagem fora da oficina e familiaridade com o teste são explicações possíveis. | Desenho completo, condições de comparação e calendário das medições. |
+| Ganho estatisticamente significativo | O resumo fornece duas médias. | A significância é indeterminada com o material fornecido. | Dispersão, observações pareadas e análise estatística. |
 
-Rejeite uma resposta que atribua causalidade à oficina ou declare significância estatística a partir dessas médias. A CLI pode gerar o plano para a revisão com `aef plan --type scientific`. A análise da turma acima é um exemplo editorial.
+Conclusão revisada de exemplo. “Na turma voluntária, a média informada foi 6 antes da oficina e 7 depois. O resumo deixa indeterminadas a contribuição causal da oficina e a significância estatística da diferença.”
+
+Para uma conferência independente do primeiro resultado, abra outra conversa, forneça [@QA](#apex-file-skills~2Fquality-assurance~2FSKILL.md), o resumo e a saída, e cole o pedido. Use os itens aplicáveis do [checklist científico](#apex-file-checklists~2Fscientific-qa.md).
+
+> @QA, compare a tabela e a conclusão revisada com o resumo fictício. Registre o trecho que sustenta cada afirmação, questões pendentes de evidência e qualquer extrapolação causal ou estatística.
+
+**Aceite e aprovação humana.** A revisão mantém 6, 7 e a diferença de um ponto, distingue explicações possíveis de fatos observados e trata causalidade e significância como indeterminadas. Registre quem revisou, a data e a decisão de aceitar ou devolver para ajuste. Para um artigo real, o autor e o revisor de domínio conferem o texto e os dados originais antes de aprovar a conclusão.
+
+<a name="apex-file-docs~2FRESEARCHERS.md-exercício-2--delimitar-um-tcc"></a>
+
+## Exercício 2 — Delimitar um TCC
+
+Em uma nova conversa, forneça [@EPO](#apex-file-skills~2Felite-project-orchestrator~2FSKILL.md) para planejar o TCC e [@Research](#apex-file-skills~2Fresearch~2FSKILL.md) para registrar a origem e o recorte dos documentos. O cenário é inteiramente fictício.
+
+> @EPO, com apoio de @Research, transforme este tema em uma pergunta respondível, um recorte, um método descritivo inicial e seis entregas semanais. Explicite o que o acervo permite concluir e o que depende da aprovação do orientador. Use apenas a entrada fictícia.
+>
+> Tema inicial. “Como as bibliotecas universitárias melhoram a aprendizagem?” Tempo disponível. Seis semanas. Acervo disponível. Seis boletins mensais fictícios de uma biblioteca, de janeiro a junho de 2025, com contagem agregada de empréstimos por categoria. Os boletins registram contagens de empréstimos e omitem notas, identidade dos usuários e dados de outras bibliotecas. Neste exercício, trabalhe somente com a descrição do acervo e planeje a extração, mantendo os valores em aberto.
+
+**Resultado ilustrativo**
+
+| Decisão | Exemplo de saída |
+|---|---|
+| Pergunta | Como se distribuem os empréstimos por categoria e por mês nos boletins dessa biblioteca entre janeiro e junho de 2025? |
+| Recorte | Uma biblioteca, os seis boletins mensais e as categorias definidas em cada documento. A unidade de registro é a contagem de empréstimos por categoria e mês. |
+| Método | Registrar boletim, página, mês, categoria e contagem. Conferir se as categorias são comparáveis, marcar dados ausentes e descrever as categorias e meses comparáveis em uma tabela. |
+| Limite | O acervo permite descrever empréstimos registrados. Medidas de aprendizagem, número de pessoas únicas e generalizações para outras bibliotecas ficam indeterminados. |
+
+| Semana | Entrega verificável |
+|---|---|
+| 1 | Pergunta e recorte discutidos com o orientador. |
+| 2 | Inventário dos seis boletins e ficha de extração. |
+| 3 | Piloto de extração em um boletim e regra para categorias divergentes. |
+| 4 | Planilha de extração com páginas e lacunas registradas. |
+| 5 | Tabela descritiva conferida com os boletins e trecho sobre limitações. |
+| 6 | Versão para revisão do orientador com trilha das fontes. |
+
+**Aceite e aprovação humana.** A pergunta cabe no acervo, os seis marcos têm entregas conferíveis e a saída mantém as contagens em aberto. O orientador confirma acesso ao acervo real, comparabilidade das categorias, método, prazo e regras institucionais antes da coleta. Registre responsável, data, decisão e pendências. Se faltar acesso ou comparabilidade, ajuste o recorte antes de avançar.
+
+Os dois exercícios podem ser feitos no chat com as entradas acima. Em um checkout, o comando `uv run aef plan --type scientific` gera um plano para revisão humana. Consulte `docs/QUICK_START.pt-BR.md` e `docs/SKILLS.md` no repositório.
 
 ## Escolha uma tarefa
 
 | Tarefa | Pedido copiável | Critério de revisão humana |
 |---|---|---|
 | Artigo e conclusões | @Scientific, relacione cada conclusão do resumo fictício ao resultado que a sustenta. | Toda inferência tem trecho e limite. |
-| TCC | @EPO, divida um TCC sobre aprendizagem em pergunta, recorte, método e seis entregas semanais. | Orientador confirma viabilidade e escopo. |
+| TCC | @EPO, delimite uma pergunta a partir do acervo fictício do exercício de TCC. | Orientador confirma viabilidade e escopo. |
 | Dissertação | @Commander, organize protocolo, coleta e capítulos em um cronograma com dependências. | Cada etapa tem condição de início e responsável. |
 | Avaliação metodológica | @Scientific, identifique vieses de seleção e mensuração no exemplo da oficina. | Separe riscos possíveis de problemas demonstrados. |
 | Revisão bibliográfica | @Research, elabore termos, critérios de inclusão e formulário de extração para estudos de oficinas. | Bibliotecário ou pesquisador testa a estratégia e registra bases e datas. |
@@ -789,37 +1099,49 @@ Rejeite uma resposta que atribua causalidade à oficina ou declare significânci
 | Revisão editorial | @Editorial, reduza o resumo mantendo números e grau de incerteza. | Autor compara original e revisão linha a linha. |
 | Controle de qualidade | @QA, aplique o checklist científico e enumere os itens sem evidência. | Cada aprovação aponta para evidência verificável. |
 
-Use o [modelo de revisão](../templates/scientific-review.md) e a [lista de verificação](../checklists/scientific-qa.md). Registre a assistência de IA conforme as regras da instituição ou periódico. A verificação de referências exige acesso às fontes originais.
+Use o [modelo de revisão](#apex-file-templates~2Fscientific-review.md) e a [lista de verificação](#apex-file-checklists~2Fscientific-qa.md). Registre a assistência de IA conforme as regras da instituição ou periódico. A verificação de referências exige acesso às fontes originais.
 
 ---
+
+<a name="apex-file-docs~2FSKILLS.md"></a>
 
 ## Arquivo: `docs/SKILLS.md`
 
 # Skill selection guide · Catálogo de skills
 
-Pick the row that matches your next decision. Open the skill for its activation criteria, inputs, worked prompt, expected output and stopping rule. Portuguese aliases are the same as English aliases. Copying an alias into a blank chat requires supplying its instructions first.
+Pick the row that matches your next decision. Open the skill for its activation criteria, inputs, worked prompt, expected output and stopping rule. The aliases work as labels in both languages. In a new chat, supply the skill instructions before using its alias.
 
 | What do you need? | Skill instructions | Entrega esperada |
 |---|---|---|
-| Prioritize several deliverables | [@Commander](../skills/commander/SKILL.md) | Mapa de dependências com responsável, prioridade e próxima decisão. |
-| Plan one deliverable | [@EPO](../skills/elite-project-orchestrator/SKILL.md) | Team Plan com papéis, critérios de aceite e evidência esperada. |
-| Assess methods and conclusions | [@Scientific](../skills/scientific/SKILL.md) | Parecer por afirmação com suporte, viés e limite de inferência. |
-| Structure a publication | [@Editorial](../skills/editorial/SKILL.md) | Esqueleto de seções, alterações editoriais e verificações de leitura. |
-| Design or review an application | [@Software](../skills/software/SKILL.md) | Decisão técnica, mudança verificável ou plano com critérios de teste. |
-| Trace documentary evidence | [@Research](../skills/research/SKILL.md) | Tabela com fonte, data, trecho, interpretação e lacunas. |
-| Communicate an evidenced benefit | [@Marketing](../skills/marketing/SKILL.md) | Mensagem com chamada para ação e registro das afirmações verificáveis. |
-| Review a visual composition | [@Design](../skills/design/SKILL.md) | Direção visual, hierarquia e lista de verificações da peça. |
-| Design a viability experiment | [@Business](../skills/business/SKILL.md) | Plano de experimento com métrica, custo e regra de decisão. |
-| Map a repeatable workflow | [@Automation](../skills/automation/SKILL.md) | Fluxo com chave de deduplicação, limite de tentativas e recuperação. |
-| Check evidence before acceptance | [@QA](../skills/quality-assurance/SKILL.md) | Matriz requisito, verificação, evidência, severidade e decisão. |
+| Prioritize several deliverables | [@Commander](#apex-file-skills~2Fcommander~2FSKILL.md) | Mapa de dependências com responsável, prioridade e próxima decisão. |
+| Plan one deliverable | [@EPO](#apex-file-skills~2Felite-project-orchestrator~2FSKILL.md) | Team Plan com papéis, critérios de aceite e evidência esperada. |
+| Assess methods and conclusions | [@Scientific](#apex-file-skills~2Fscientific~2FSKILL.md) | Parecer por afirmação com suporte, viés e limite de inferência. |
+| Structure a publication | [@Editorial](#apex-file-skills~2Feditorial~2FSKILL.md) | Esqueleto de seções, alterações editoriais e verificações de leitura. |
+| Design or review an application | [@Software](#apex-file-skills~2Fsoftware~2FSKILL.md) | Decisão técnica, mudança verificável ou plano com critérios de teste. |
+| Trace documentary evidence | [@Research](#apex-file-skills~2Fresearch~2FSKILL.md) | Tabela com fonte, data, trecho, interpretação e lacunas. |
+| Communicate an evidenced benefit | [@Marketing](#apex-file-skills~2Fmarketing~2FSKILL.md) | Mensagem com chamada para ação e registro das afirmações verificáveis. |
+| Review a visual composition | [@Design](#apex-file-skills~2Fdesign~2FSKILL.md) | Direção visual, hierarquia e lista de verificações da peça. |
+| Design a viability experiment | [@Business](#apex-file-skills~2Fbusiness~2FSKILL.md) | Plano de experimento com métrica, custo e regra de decisão. |
+| Map a repeatable workflow | [@Automation](#apex-file-skills~2Fautomation~2FSKILL.md) | Fluxo com chave de deduplicação, limite de tentativas e recuperação. |
+| Check evidence before acceptance | [@QA](#apex-file-skills~2Fquality-assurance~2FSKILL.md) | Matriz requisito, verificação, evidência, severidade e decisão. |
 
 ## Where responsibilities meet
 
-Commander tracks decisions across projects. EPO builds the plan for one deliverable. Research traces claims to sources. Scientific judges whether the study design supports an inference. Editorial owns structure and wording, while Design checks composition and visual access. Business tests a value hypothesis before Marketing communicates the benefit. Software owns application behavior and Automation handles triggers, retries and external effects. QA records an independent decision against the acceptance criteria.
+| Ambiguous request | Start with | Add another skill when |
+|---|---|---|
+| “Check the conclusion and citations in this article.” | @Research when you need to find the passage backing a claim. | @Scientific when a study's design or data must justify an inference. @QA checks the revised conclusion against the original evidence and acceptance criteria. |
+| “Help me finish my thesis and teaching project.” | @Commander when dates or dependencies need coordination across workstreams. | @EPO when one deliverable needs its own plan, such as narrowing the thesis to a question the available documents can answer. |
+| “Revise this handout before class.” | @Editorial when structure, wording or hierarchy needs work. | @Design when composition, spacing or legibility in the intended format needs a visual review. |
+| “Validate and announce the service.” | @Business when demand, costs or the viability threshold are still open. | @Marketing when evidence is available and the next task is to explain the benefit to an audience. |
+| “Build a form that sends an email.” | @Software for form behavior, validation and tests. | @Automation when triggers, retries or duplicate sends affect the external workflow. |
+
+For a single acceptance decision, give @QA the stated criteria, artifact and evidence. [Article and thesis exercises (Português)](#apex-file-docs~2FRESEARCHERS.md) · [Quick start](#apex-file-docs~2FQUICK_START.md)
 
 The CLI selects predefined teams for six project types. A specialist can also be selected manually from this table. Each skill has a directory-matched front matter name, a description with activation cues and an optional OpenAI interface descriptor. Host discovery and model adherence require separate validation.
 
 ---
+
+<a name="apex-file-docs~2FUSAGE.md"></a>
 
 ## Arquivo: `docs/USAGE.md`
 
@@ -862,6 +1184,8 @@ uv sync --dev
 
 ---
 
+<a name="apex-file-docs~2FVERSIONING.md"></a>
+
 ## Arquivo: `docs/VERSIONING.md`
 
 # Versionamento
@@ -884,6 +1208,8 @@ O AEF segue Semantic Versioning:
 Versões de arquivos de configuração permanecem compatíveis dentro de uma versão major. Mudanças destrutivas exigem migração documentada.
 
 ---
+
+<a name="apex-file-docs~2FVISUAL_PROMPT_KIT.md"></a>
 
 ## Arquivo: `docs/VISUAL_PROMPT_KIT.md`
 
@@ -1316,6 +1642,8 @@ Isso evita excesso de pesquisa e mantém o processo rápido.
 
 ---
 
+<a name="apex-file-examples~2FWALKTHROUGHS.md"></a>
+
 ## Arquivo: `examples/WALKTHROUGHS.md`
 
 # Eight CLI walkthroughs
@@ -1404,6 +1732,8 @@ Load one skill file and ask for its deliverable using a fictional request. The r
 
 ---
 
+<a name="apex-file-examples~2Fautomation.md"></a>
+
 ## Arquivo: `examples/automation.md`
 
 # Exemplo — Automação com aprovação humana
@@ -1432,6 +1762,8 @@ Diagrama do fluxo, matriz de permissões, contrato de entradas e saídas, polít
 - falhas são observáveis e recuperáveis.
 
 ---
+
+<a name="apex-file-examples~2Fcatalog.md"></a>
 
 ## Arquivo: `examples/catalog.md`
 
@@ -1463,6 +1795,8 @@ Brief preenchido, mapa de páginas, inventário rastreável de produtos, especif
 
 ---
 
+<a name="apex-file-examples~2Fdocumentary-research.md"></a>
+
 ## Arquivo: `examples/documentary-research.md`
 
 # Exemplo — Pesquisa documental
@@ -1490,6 +1824,8 @@ Perguntas de pesquisa, protocolo de busca, tabela de fontes, síntese por tema, 
 - nenhuma conclusão excede a evidência disponível.
 
 ---
+
+<a name="apex-file-examples~2Fscientific-review.md"></a>
 
 ## Arquivo: `examples/scientific-review.md`
 
@@ -1519,6 +1855,8 @@ Matriz de afirmações e fontes, avaliação metodológica, achados classificado
 - revisão humana especializada é indicada quando exigida pelo risco.
 
 ---
+
+<a name="apex-file-examples~2Fsoftware-project.md"></a>
 
 ## Arquivo: `examples/software-project.md`
 
@@ -1550,8 +1888,11 @@ Diagnóstico do repositório, modelo de ameaças, mudanças incrementais, migrat
 
 ---
 
+<a name="apex-file-schemas~2Fteam-plan.schema.json"></a>
+
 ## Arquivo: `schemas/team-plan.schema.json`
 
+```json
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://apex-elite-framework.local/schemas/team-plan.schema.json",
@@ -1587,8 +1928,11 @@ Diagnóstico do repositório, modelo de ameaças, mudanças incrementais, migrat
   },
   "additionalProperties": false
 }
+```
 
 ---
+
+<a name="apex-file-skills~2Fautomation~2FSKILL.md"></a>
 
 ## Arquivo: `skills/automation/SKILL.md`
 
@@ -1623,14 +1967,20 @@ Pedido de exemplo
 
 ---
 
+<a name="apex-file-skills~2Fautomation~2Fagents~2Fopenai.yaml"></a>
+
 ## Arquivo: `skills/automation/agents/openai.yaml`
 
+```yaml
 interface:
   display_name: "Automation"
   short_description: "Projeta automações seguras e observáveis"
   default_prompt: "Use $automation para projetar este fluxo com idempotência, observabilidade e condição de parada."
+```
 
 ---
+
+<a name="apex-file-skills~2Fbusiness~2FSKILL.md"></a>
 
 ## Arquivo: `skills/business/SKILL.md`
 
@@ -1666,14 +2016,20 @@ Pedido de exemplo
 
 ---
 
+<a name="apex-file-skills~2Fbusiness~2Fagents~2Fopenai.yaml"></a>
+
 ## Arquivo: `skills/business/agents/openai.yaml`
 
+```yaml
 interface:
   display_name: "Business"
   short_description: "Avalia viabilidade, estratégia, riscos e métricas"
   default_prompt: "Use $business para avaliar a proposta de valor, a viabilidade, os riscos e as métricas."
+```
 
 ---
+
+<a name="apex-file-skills~2Fcommander~2FSKILL.md"></a>
 
 ## Arquivo: `skills/commander/SKILL.md`
 
@@ -1733,14 +2089,20 @@ Pedido de exemplo
 
 ---
 
+<a name="apex-file-skills~2Fcommander~2Fagents~2Fopenai.yaml"></a>
+
 ## Arquivo: `skills/commander/agents/openai.yaml`
 
+```yaml
 interface:
   display_name: "Commander"
   short_description: "Coordena programas e projetos com várias frentes"
   default_prompt: "Use $commander para coordenar este projeto, registrar decisões, riscos e próximas entregas."
+```
 
 ---
+
+<a name="apex-file-skills~2Fdesign~2FSKILL.md"></a>
 
 ## Arquivo: `skills/design/SKILL.md`
 
@@ -1776,14 +2138,20 @@ Pedido de exemplo
 
 ---
 
+<a name="apex-file-skills~2Fdesign~2Fagents~2Fopenai.yaml"></a>
+
 ## Arquivo: `skills/design/agents/openai.yaml`
 
+```yaml
 interface:
   display_name: "Design"
   short_description: "Conduz direção de arte e qualidade visual"
   default_prompt: "Use $design para definir a direção visual e revisar a qualidade desta peça."
+```
 
 ---
+
+<a name="apex-file-skills~2Feditorial~2FSKILL.md"></a>
 
 ## Arquivo: `skills/editorial/SKILL.md`
 
@@ -1827,14 +2195,20 @@ Pedido de exemplo
 
 ---
 
+<a name="apex-file-skills~2Feditorial~2Fagents~2Fopenai.yaml"></a>
+
 ## Arquivo: `skills/editorial/agents/openai.yaml`
 
+```yaml
 interface:
   display_name: "Editorial"
   short_description: "Estrutura e revisa publicações profissionais"
   default_prompt: "Use $editorial para estruturar e revisar esta publicação com padrão profissional."
+```
 
 ---
+
+<a name="apex-file-skills~2Felite-project-orchestrator~2FSKILL.md"></a>
 
 ## Arquivo: `skills/elite-project-orchestrator/SKILL.md`
 
@@ -1884,14 +2258,20 @@ Pedido de exemplo
 
 ---
 
+<a name="apex-file-skills~2Felite-project-orchestrator~2Fagents~2Fopenai.yaml"></a>
+
 ## Arquivo: `skills/elite-project-orchestrator/agents/openai.yaml`
 
+```yaml
 interface:
   display_name: "Elite Project Orchestrator"
   short_description: "Orquestra tarefas complexas do intake ao QA"
   default_prompt: "Use $elite-project-orchestrator para planejar, executar, revisar e auditar esta tarefa."
+```
 
 ---
+
+<a name="apex-file-skills~2Fmarketing~2FSKILL.md"></a>
 
 ## Arquivo: `skills/marketing/SKILL.md`
 
@@ -1935,14 +2315,20 @@ Pedido de exemplo
 
 ---
 
+<a name="apex-file-skills~2Fmarketing~2Fagents~2Fopenai.yaml"></a>
+
 ## Arquivo: `skills/marketing/agents/openai.yaml`
 
+```yaml
 interface:
   display_name: "Marketing"
   short_description: "Cria mensagem comercial clara e responsável"
   default_prompt: "Use $marketing para revisar o posicionamento, a copy e a jornada de conversão."
+```
 
 ---
+
+<a name="apex-file-skills~2Fquality-assurance~2FSKILL.md"></a>
 
 ## Arquivo: `skills/quality-assurance/SKILL.md`
 
@@ -1988,14 +2374,20 @@ Pedido de exemplo
 
 ---
 
+<a name="apex-file-skills~2Fquality-assurance~2Fagents~2Fopenai.yaml"></a>
+
 ## Arquivo: `skills/quality-assurance/agents/openai.yaml`
 
+```yaml
 interface:
   display_name: "Quality Assurance"
   short_description: "Executa revisão adversarial e gates de qualidade"
   default_prompt: "Use $quality-assurance para auditar esta entrega e classificar os achados por severidade."
+```
 
 ---
+
+<a name="apex-file-skills~2Fresearch~2FSKILL.md"></a>
 
 ## Arquivo: `skills/research/SKILL.md`
 
@@ -2031,14 +2423,20 @@ Pedido de exemplo
 
 ---
 
+<a name="apex-file-skills~2Fresearch~2Fagents~2Fopenai.yaml"></a>
+
 ## Arquivo: `skills/research/agents/openai.yaml`
 
+```yaml
 interface:
   display_name: "Research"
   short_description: "Conduz pesquisa rastreável e verificável"
   default_prompt: "Use $research para pesquisar este tema com método, fontes e nível de confiança."
+```
 
 ---
+
+<a name="apex-file-skills~2Fscientific~2FSKILL.md"></a>
 
 ## Arquivo: `skills/scientific/SKILL.md`
 
@@ -2082,14 +2480,20 @@ Pedido de exemplo
 
 ---
 
+<a name="apex-file-skills~2Fscientific~2Fagents~2Fopenai.yaml"></a>
+
 ## Arquivo: `skills/scientific/agents/openai.yaml`
 
+```yaml
 interface:
   display_name: "Scientific"
   short_description: "Revisa método, evidência e conclusões científicas"
   default_prompt: "Use $scientific para avaliar a metodologia, as evidências e as conclusões deste material."
+```
 
 ---
+
+<a name="apex-file-skills~2Fsoftware~2FSKILL.md"></a>
 
 ## Arquivo: `skills/software/SKILL.md`
 
@@ -2136,14 +2540,20 @@ Pedido de exemplo
 
 ---
 
+<a name="apex-file-skills~2Fsoftware~2Fagents~2Fopenai.yaml"></a>
+
 ## Arquivo: `skills/software/agents/openai.yaml`
 
+```yaml
 interface:
   display_name: "Software"
   short_description: "Projeta e revisa software seguro e testável"
   default_prompt: "Use $software para planejar e implementar esta solução com segurança, testes e documentação."
+```
 
 ---
+
+<a name="apex-file-templates~2Fautomation-project.md"></a>
 
 ## Arquivo: `templates/automation-project.md`
 
@@ -2163,6 +2573,8 @@ interface:
 ## Testes e critérios de aceite
 
 ---
+
+<a name="apex-file-templates~2Fcatalogo-premium.md"></a>
 
 ## Arquivo: `templates/catalogo-premium.md`
 
@@ -2237,6 +2649,8 @@ Usar somente campos aplicáveis e verificados. Não inventar valores para preenc
 
 ---
 
+<a name="apex-file-templates~2Fproject-brief.md"></a>
+
 ## Arquivo: `templates/project-brief.md`
 
 # Project Brief
@@ -2258,6 +2672,8 @@ Usar somente campos aplicáveis e verificados. Não inventar valores para preenc
 
 ---
 
+<a name="apex-file-templates~2Fresearch-project.md"></a>
+
 ## Arquivo: `templates/research-project.md`
 
 # Brief — Pesquisa Documental
@@ -2274,6 +2690,8 @@ Usar somente campos aplicáveis e verificados. Não inventar valores para preenc
 ## Síntese e recomendações
 
 ---
+
+<a name="apex-file-templates~2Fscientific-review.md"></a>
 
 ## Arquivo: `templates/scientific-review.md`
 
@@ -2295,6 +2713,8 @@ Usar somente campos aplicáveis e verificados. Não inventar valores para preenc
 
 ---
 
+<a name="apex-file-templates~2Fsoftware-project.md"></a>
+
 ## Arquivo: `templates/software-project.md`
 
 # Template — Projeto de Software
@@ -2315,6 +2735,8 @@ Usar somente campos aplicáveis e verificados. Não inventar valores para preenc
 
 ---
 
+<a name="apex-file-workflows~2Fdefault-workflow.md"></a>
+
 ## Arquivo: `workflows/default-workflow.md`
 
 # Workflow padrão
@@ -2333,6 +2755,8 @@ Usar somente campos aplicáveis e verificados. Não inventar valores para preenc
 12. Entregar relatório final.
 
 ---
+
+<a name="apex-file-workflows~2Floop-control.md"></a>
 
 ## Arquivo: `workflows/loop-control.md`
 

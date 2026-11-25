@@ -1,6 +1,7 @@
 AGENTS.md
 LICENSE
 README.md
+README.pt-BR.md
 VERSION
 chatgpt/INSTRUCTIONS.md
 checklists/automation-qa.md
@@ -13,8 +14,11 @@ config/project-types.json
 config/skills.json
 docs/ARCHITECTURE.md
 docs/CODEX_SETUP.md
+docs/COMPATIBILITY.md
 docs/ECOSYSTEM.md
 docs/QUALITY_MODEL.md
+docs/QUICK_START.md
+docs/QUICK_START.pt-BR.md
 docs/RESEARCHERS.md
 docs/SKILLS.md
 docs/USAGE.md
