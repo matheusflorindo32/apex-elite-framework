@@ -10,6 +10,7 @@ from typing import Sequence
 
 from . import __version__
 from .catalog import load_project_types, load_skills, repository_root
+from .handoff import consume
 from .planning import (
     build_plan,
     plan_to_markdown,
@@ -52,6 +53,13 @@ def build_parser() -> argparse.ArgumentParser:
     checklist.add_argument("--type", dest="project_type", required=True)
     checklist.add_argument("--output", type=Path)
 
+    handoff = commands.add_parser("handoff", help="operações com handoffs locais")
+    handoff_commands = handoff.add_subparsers(dest="handoff_command", required=True)
+    consume_handoff = handoff_commands.add_parser("consume", help="verificar handoff Tropa v1")
+    for flag in ("envelope", "plan", "acceptance-criteria"):
+        consume_handoff.add_argument(f"--{flag}", type=Path, required=True)
+    consume_handoff.add_argument("--expected-revision", required=True)
+
     audit = commands.add_parser("audit", help="gerar auditoria em Markdown ou JSON")
     audit.add_argument("--format", choices=("markdown", "json"), default="markdown")
     audit.add_argument("--output", type=Path)
@@ -71,6 +79,11 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser = build_parser()
     args = parser.parse_args(argv)
     try:
+        if args.command == "handoff":
+            result = consume(args.envelope, args.plan, args.acceptance_criteria, args.expected_revision)
+            print(write_output(result, None), end="")
+            return 0
+
         root = _root(args)
         if args.command == "skills":
             for skill in load_skills(root):

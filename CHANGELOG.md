@@ -2,6 +2,12 @@
 
 Este projeto segue [Semantic Versioning](https://semver.org/).
 
+## Não publicado
+
+- Inclui o consumidor offline de handoffs Tropa v1, com revisão esperada,
+  verificação SHA-256 e validação dos critérios do Team Plan.
+  [Contrato de consumo](docs/TROPA_HANDOFF.md)
+
 ## 1.0.1-rc.1 · candidata para revisão
 
 - Corrige descoberta de recursos após instalação e validação de caminhos.
