@@ -1,5 +1,8 @@
 import hashlib
 import json
+import os
+import subprocess
+import sys
 
 import pytest
 
@@ -82,3 +85,18 @@ def test_handoff_rejects_invalid_input_without_printing_it(handoff, capsys, fail
     output = capsys.readouterr()
     assert output.out == ""
     assert marker not in output.err
+
+
+def test_handoff_stdout_json_survives_ascii_locale(handoff):
+    command, plan, envelope_path, envelope, plan_path, _ = handoff
+    plan["request"] = "Verificação sintética"
+    plan_path.write_text(json.dumps(plan, ensure_ascii=False), encoding="utf-8")
+    envelope["artifacts"]["plan"] = hashlib.sha256(plan_path.read_bytes()).hexdigest()
+    envelope_path.write_text(json.dumps(envelope), encoding="utf-8")
+    result = subprocess.run(
+        [sys.executable, "-m", "aef", *command],
+        env={**os.environ, "PYTHONIOENCODING": "ascii"},
+        capture_output=True, timeout=15,
+    )
+    assert result.returncode == 0, result.stderr
+    assert json.loads(result.stdout)["team_plan"]["request"] == plan["request"]

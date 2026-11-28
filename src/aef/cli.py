@@ -81,7 +81,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     try:
         if args.command == "handoff":
             result = consume(args.envelope, args.plan, args.acceptance_criteria, args.expected_revision)
-            print(write_output(result, None), end="")
+            print(json.dumps(result, ensure_ascii=True, indent=2))
             return 0
 
         root = _root(args)
